@@ -1,0 +1,956 @@
+<html lang="ru">
+<head>
+    <script>
+        // Меняем заголовок страницы мгновенно
+        document.title = "Академия Кибербезопасности";
+        
+        // Удаляем любые элементы, которые могут добавлять название репозитория
+        (function() {
+            // Функция для удаления элементов с текстом "-_-"
+            function removeBadTitle() {
+                // Ищем все элементы на странице
+                const allElements = document.querySelectorAll('*');
+                
+                allElements.forEach(el => {
+                    // Если элемент содержит текст "-_-" и это не наша навигация
+                    if (el.textContent && el.textContent.includes('-_-') && 
+                        !el.classList.contains('logo') && 
+                        !el.classList.contains('dropdown-link')) {
+                        
+                        // Если это маленький элемент (скорее всего авто-добавленный)
+                        if (el.children.length === 0 && el.textContent.trim() === '-_-') {
+                            el.remove();
+                        }
+                        // Если это текстовый узел в body
+                        else if (el.tagName === 'BODY' || el.tagName === 'DIV') {
+                            el.textContent = el.textContent.replace(/-_-/g, '');
+                        }
+                    }
+                });
+            }
+            
+            // Запускаем сразу
+            removeBadTitle();
+            
+            // И запускаем несколько раз после загрузки
+            setTimeout(removeBadTitle, 100);
+            setTimeout(removeBadTitle, 500);
+            setTimeout(removeBadTitle, 1000);
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Академия Кибербезопасности - Защита от мошенничества</title>
+<script>
+        // Этот скрипт выполнится самым первым
+        document.title = "Академия Кибербезопасности";
+    </script>
+ <meta property="og:title" content="Академия Кибербезопасности">
+    <meta property="og:site_name" content="Академия Кибербезопасности">
+    <meta property="og:description" content="Интерактивная обучающая платформа по кибербезопасности">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kostyakosta2000-prog.github.io/-_-/">
+    <meta name="description" content="Интерактивная обучающая платформа по кибербезопасности">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+        <!-- Этот элемент переопределяет название сайта для GitHub Pages -->
+    <div style="display: none;">Академия Кибербезопасности</div>
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <!-- Модальные окна -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2><i class="fas fa-sign-in-alt icon"></i>Вход в систему</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="Введите ваш email" required>
+                    <div class="form-error" id="loginEmailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Введите пароль" required>
+                    <div class="form-error" id="loginPasswordError"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-large" style="width: 100%;">Войти</button>
+                </div>
+                <div class="form-footer">
+                    <p>Нет аккаунта? <a onclick="showRegisterModal()">Зарегистрироваться</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2><i class="fas fa-user-plus icon"></i>Регистрация</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Имя</label>
+                    <input type="text" id="registerName" class="form-control" placeholder="Введите ваше имя" required>
+                    <div class="form-error" id="registerNameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="Введите ваш email" required>
+                    <div class="form-error" id="registerEmailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Пароль</label>
+                    <input type="password" id="registerPassword" class="form-control" placeholder="Введите пароль (минимум 6 символов)" required>
+                    <div class="form-error" id="registerPasswordError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Подтверждение пароля</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Повторите пароль" required>
+                    <div class="form-error" id="registerConfirmPasswordError"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-large btn-success" style="width: 100%;">Зарегистрироваться</button>
+                </div>
+                <div class="form-footer">
+                    <p>Уже есть аккаунт? <a onclick="showLoginModal()">Войти</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Навигация -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <!-- Левая часть с логотипом и кнопкой -->
+        <div class="nav-left">
+            <button class="menu-btn" id="menuBtn" onclick="toggleDropdownMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <a href="#" class="logo" onclick="showPage('home')">
+                <i class="fas fa-shield-alt"></i>
+                <span>КиберАкадемия</span>
+            </a>
+        </div>
+        
+        <!-- Правая часть -->
+        <div class="nav-right">
+            <!-- Логотип аббревиатуры университета -->
+            <div style="display: flex; align-items: center; gap: 8px;  padding: 10px 12px; border-radius: 30px; margin-right: 15px;">
+                <img src="Логотип.png" style="height: 50px; width: auto;">
+                <span style="font-size: 0.85rem; font-weight: 400; color: #2e7d32;"></span>
+            </div>
+            
+            <!-- Кнопки авторизации (десктоп) -->
+            <div class="auth-buttons" id="authButtonsContainer">
+                <button class="btn" onclick="showLoginModal()">
+                    <i class="fas fa-sign-in-alt"></i> Войти
+                </button>
+                <button class="btn btn-success" onclick="showRegisterModal()">
+                    <i class="fas fa-user-plus"></i> Регистрация
+                </button>
+            </div>
+            
+            <!-- Пользовательское меню (десктоп) -->
+            <div class="user-menu" id="userMenu"></div>
+        </div>
+    </div>
+    
+    <!-- Выпадающее меню -->
+    <div class="dropdown-menu" id="dropdownMenu">
+        <div class="dropdown-header">
+            <h3>Меню навигации</h3>
+            <p>Выберите раздел</p>
+        </div>
+        
+        <ul class="dropdown-list">
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link" onclick="showPage('home'); closeDropdownMenu()">
+                    <i class="fas fa-home"></i>
+                    Главная
+                </a>
+            </li>
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link" onclick="showPage('courses'); closeDropdownMenu()">
+                    <i class="fas fa-book"></i>
+                    Все курсы
+                </a>
+            </li>
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link" onclick="showPage('simulators'); closeDropdownMenu()">
+                    <i class="fas fa-gamepad"></i>
+                    Тренажеры
+                </a>
+            </li>
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link" onclick="showPage('test'); closeDropdownMenu()">
+                    <i class="fas fa-graduation-cap"></i>
+                    Тестирование
+                </a>
+            </li>
+        </ul>
+        
+        <!-- Секция пользователя в меню (заполняется JS) -->
+        <div class="dropdown-user-section" id="dropdownUserSection"></div>
+    </div>
+</nav>
+
+<!-- Затемнение фона -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeDropdownMenu()"></div>
+
+    <!-- Контейнер для всех страниц -->
+    <div class="container">
+        <!-- Главная страница -->
+        <div id="home" class="page active">
+            <!-- Герой-секция -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Защити себя от цифровых мошенников</h1>
+                    <p class="hero-subtitle">Интерактивная обучающая платформа по кибербезопасности. Узнайте, как распознавать и противостоять современным видам мошенничества через практические курсы, тренажеры и тесты.</p>
+                    
+                    <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;">
+                        <button class="btn btn-large btn-accent" onclick="startLearning()">
+                            <i class="fas fa-play-circle icon"></i> Начать обучение
+                        </button>
+                        <button class="btn btn-large btn-outline" onclick="showPage('courses')">
+                            <i class="fas fa-book icon"></i> Все курсы
+                        </button>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">120</div>
+                            <div class="hero-stat-text">Пользователей</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">10+</div>
+                            <div class="hero-stat-text">Учебных курса</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">89%</div>
+                            <div class="hero-stat-text">Успешной защиты</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">150</div>
+                            <div class="hero-stat-text">Сертификатов</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Почему мы -->
+            <section class="features-section">
+                <div class="section-title">
+                    <h2>Почему выбирают нашу платформу?</h2>
+                    <p>Мы предлагаем уникальный подход к обучению кибербезопасности через практику и симуляцию реальных ситуаций</p>
+                </div>
+                
+               <div class="features-grid">
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Интерактивные тренажеры</h3>
+        <p>Практикуйтесь в безопасной среде с реалистичными симуляторами мошеннических ситуаций</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Отслеживание прогресса</h3>
+        <p>Следите за своим развитием, получайте достижения и улучшайте свои навыки</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-certificate"></i>
+        </div>
+        <h3>Сертификация</h3>
+        <p>Получайте сертификаты после прохождения курсов и подтверждайте свои знания</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Актуальные знания</h3>
+        <p>Материалы постоянно обновляются в соответствии с новыми угрозами и схемами мошенников</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-user-shield"></i>
+        </div>
+        <h3>Экспертная поддержка</h3>
+        <p>Получайте консультации от профессиональных специалистов по кибербезопасности</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Мобильный доступ</h3>
+        <p>Обучайтесь в любое время и в любом месте с мобильной версией платформы</p>
+    </div>
+</div>
+            </section>
+            
+            <!-- Популярные курсы -->
+            <section class="courses-preview">
+                <div class="section-title">
+                    <h2>Популярные курсы</h2>
+                    <p>Начните с самых актуальных тем по защите от мошенничества</p>
+                </div>
+                
+                <div class="course-cards">
+                    <div class="course-card">
+                        <div class="course-icon phishing">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3>Фишинг</h3>
+                        <p>Научитесь распознавать мошеннические письма, SMS и сообщения в соцсетях</p>
+                        <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('phishing')">
+                            Изучить курс
+                        </button>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-icon calls">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Телефонное мошенничество</h3>
+                        <p>Узнайте, как правильно реагировать на звонки мошенников от "банков" и "служб"</p>
+                        <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('calls')">
+                            Изучить курс
+                        </button>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-icon gosuslugi">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <h3>Мошенничество с Госуслугами</h3>
+                        <p>Защитите свой аккаунт на портале Госуслуги от мошенников</p>
+                        <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('gosuslugi')">
+                            Изучить курс
+                        </button>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-icon puu">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>ПУУ схемы</h3>
+                        <p>Изучите сложные технические схемы мошенничества и защититесь от них</p>
+                        <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('puu')">
+                            Изучить курс
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Призыв к действию -->
+            <section class="cta-section">
+                <h2 class="cta-title">Готовы начать обучение?</h2>
+                <p class="cta-text">Присоединяйтесь к тысячам пользователей, которые уже научились защищать себя от цифровых мошенников. Создайте аккаунт и получите доступ ко всем курсам и тренажерам бесплатно.</p>
+                
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-large btn-accent" onclick="showRegisterModal()">
+                        <i class="fas fa-user-plus icon"></i> Начать бесплатно
+                    </button>
+                    <button class="btn btn-large" style="background-color: white; color: var(--primary-color);" onclick="showLoginModal()">
+                        <i class="fas fa-sign-in-alt icon"></i> Войти в аккаунт
+                    </button>
+                </div>
+            </section>
+            
+            <!-- О платформе -->
+            <div class="card" style="margin-top: 60px;">
+                <h2>О платформе "КиберАкадемия"</h2>
+                <p>Наша миссия - сделать знания о кибербезопасности доступными для каждого. Мы создали уникальную образовательную платформу, которая сочетает теорию с практикой через интерактивные симуляторы реальных ситуаций.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2026</div>
+                        <div>Год основания</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div>Доступ к обучению</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div>Довольных пользователей</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div>Полезное обучение</div>
+                    </div>
+                </div>
+                
+                <h3>Наши преимущества</h3>
+                <div class="options" style="margin-top: 20px;">
+                    <div class="option" style="cursor: default;">
+                        <h4><i class="fas fa-check-circle success-icon icon"></i> Практический подход</h4>
+                        <p>Учитесь на реальных примерах и симуляциях, а не только на теории</p>
+                    </div>
+                    <div class="option" style="cursor: default;">
+                        <h4><i class="fas fa-check-circle success-icon icon"></i> Персональный прогресс</h4>
+                        <p>Отслеживайте свой рост и получайте индивидуальные рекомендации</p>
+                    </div>
+                    <div class="option" style="cursor: default;">
+                        <h4><i class="fas fa-check-circle success-icon icon"></i> Безопасная среда</h4>
+                        <p>Все тренажеры работают в изолированной среде без риска для пользователя</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница всех курсов -->
+        <div id="courses" class="page">
+            <div class="card">
+                <div class="course-header">
+                    <div class="course-header-icon" style="background: linear-gradient(135deg, #1a237e, #3949ab);">
+        <i class="fas fa-laptop-code"></i>
+    </div>
+                    <div class="course-header-content">
+                        <h1>Все курсы по кибербезопасности</h1>
+                        <p>Выберите курс для изучения. Все курсы включают теорию, практические примеры и итоговое тестирование.</p>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <div class="tab active" onclick="openTab(event, 'all-courses')">Все курсы</div>
+                    <div class="tab" onclick="openTab(event, 'beginner-courses')">Для начинающих</div>
+                    <div class="tab" onclick="openTab(event, 'advanced-courses')">Продвинутые</div>
+                    <div class="tab" onclick="openTab(event, 'my-courses')">Мои курсы</div>
+                </div>
+                
+                <div id="all-courses" class="tab-content active">
+                    <h3>Каталог курсов</h3>
+                    <div class="course-cards">
+                        <!-- Фишинг курс -->
+                        <div class="course-card">
+                            <div class="course-icon phishing">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h3>Фишинг и социальная инженерия</h3>
+                            <p>Полный курс по распознаванию мошеннических писем, SMS и сообщений в соцсетях. 7 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>7 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1 час</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('phishing')">
+                                Начать курс
+                            </button>
+                        </div>
+                        
+                        <!-- Телефонное мошенничество -->
+                        <div class="course-card">
+                            <div class="course-icon calls">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3>Телефонное мошенничество</h3>
+                            <p>Защита от звонков мошенников. Учитесь правильно реагировать на опасные звонки. 6 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>6 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1.5 часа</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('calls')">
+                                Начать курс
+                            </button>
+                        </div>
+                        
+                        <!-- Госуслуги -->
+                        <div class="course-card">
+                            <div class="course-icon gosuslugi">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <h3>Мошенничество с Госуслугами</h3>
+                            <p>Защита аккаунта на портале Госуслуги. Поддельные сайты и запросы кодов. 7 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>7 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>45 минут</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('gosuslugi')">
+                                Начать курс
+                            </button>
+                        </div>
+                        
+                        <!-- ПУУ схемы -->
+                        <div class="course-card">
+                            <div class="course-icon puu">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>ПУУ схемы и сложные атаки</h3>
+                            <p>Технические схемы мошенничества. Удаленный доступ и социальная инженерия. 10 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>10 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1 час</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('puu')">
+                                Начать курс
+                            </button>
+                        </div>
+                        
+                        <!-- Пароли и аутентификация -->
+                        <div class="course-card">
+                            <div class="course-icon passwords">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h3>Пароли и аутентификация</h3>
+                            <p>Создание надежных паролей, двухфакторная аутентификация, менеджеры паролей. 5 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>5 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>50 минут</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('passwords')">
+                                Начать курс
+                            </button>
+                        </div>
+                        
+                        <!-- Соцсети и мессенджеры -->
+                        <div class="course-card">
+                            <div class="course-icon social">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Безопасность в соцсетях</h3>
+                            <p>Защита аккаунтов в соцсетях, приватность, фишинг в мессенджерах. 6 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>6 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1 час</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('social')">
+                                Начать курс
+                            </button>
+                        </div>
+                        
+                        <!-- Финансовое мошенничество -->
+                        <div class="course-card">
+                            <div class="course-icon financial">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h3>Финансовое мошенничество</h3>
+                            <p>Защита банковских карт, онлайн-платежи, мошенничество с инвестициями. 8 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>8 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1 час</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('financial')">
+                                Начать курс
+                            </button>
+                        </div>
+                        
+                        <!-- Мобильная безопасность -->
+                        <div class="course-card">
+                            <div class="course-icon" style="background: linear-gradient(135deg, #7b1fa2, #ba68c8);">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Мобильная безопасность</h3>
+                            <p>Защита смартфонов, безопасность приложений, мобильный банкинг. 7 уроков.</p>
+                            <div class="course-meta">
+                                <div class="course-meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>7 уроков</span>
+                                </div>
+                                <div class="course-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1.5 часа</span>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="startCourse('mobile')">
+                                Начать курс
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="beginner-courses" class="tab-content">
+                    <h3>Курсы для начинающих</h3>
+                    <p>Начните с основ кибербезопасности. Эти курсы подходят для новичков.</p>
+                    <!-- Контент будет загружен динамически -->
+                </div>
+                
+                <div id="advanced-courses" class="tab-content">
+                    <h3>Продвинутые курсы</h3>
+                    <p>Для тех, кто уже знаком с основами и хочет углубить знания.</p>
+                    <!-- Контент будет загружен динамически -->
+                </div>
+                
+                <div id="my-courses" class="tab-content">
+                    <h3>Мои курсы</h3>
+                    <p id="my-courses-message">Войдите в систему, чтобы увидеть ваши курсы.</p>
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница курса Фишинг -->
+        <div id="phishing-course" class="page">
+            <div class="card">
+                <div id="phishingCourseContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница курса Телефонное мошенничество -->
+        <div id="calls-course" class="page">
+            <div class="card">
+                <div id="callsCourseContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница курса Госуслуги -->
+        <div id="gosuslugi-course" class="page">
+            <div class="card">
+                <div id="gosuslugiCourseContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница курса ПУУ схемы -->
+        <div id="puu-course" class="page">
+            <div class="card">
+                <div id="puuCourseContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+
+ <!-- Страница курса Безопасность в соцсетях -->
+        <div id="social-course" class="page">
+    <div class="card">
+        <div id="socialCourseContent">
+            <!-- Контент будет загружен динамически -->
+        </div>
+    </div>
+</div>        
+
+        <!-- Страница тренажеров -->
+        <div id="simulators" class="page">
+            <div class="card">
+                <div class="course-header">
+                    <div class="course-header-icon" style="background: linear-gradient(135deg, var(--accent-color), #26c6da);">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="course-header-content">
+                        <h1>Интерактивные тренажеры</h1>
+                        <p>Практикуйтесь в безопасной среде. Симуляторы реальных ситуаций помогут закрепить знания.</p>
+                    </div>
+                </div>
+                
+                <div class="simulators-grid">
+                    <!-- Тренажер 1 -->
+                    <div class="simulator-card">
+                        <div class="simulator-header" style="background: linear-gradient(135deg, var(--phishing-color), #ef5350);">
+                            <div class="simulator-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Фишинг-детектив</h3>
+                            <div class="simulator-difficulty">Начальный уровень</div>
+                        </div>
+                        <div class="simulator-body">
+                            <p>Определяйте фишинговые письма среди легитимных. Учитесь замечать признаки обмана в электронной почте.</p>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Прогресс</span>
+                                    <span id="simulator1-progress">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="simulator1-bar" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%;" onclick="startSimulator('phishing-detective')">
+                                <i class="fas fa-play icon"></i> Запустить тренажер
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Тренажер 2 -->
+                    <div class="simulator-card">
+                        <div class="simulator-header" style="background: linear-gradient(135deg, var(--calls-color), #ffa726);">
+                            <div class="simulator-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Телефонный симулятор</h3>
+                            <div class="simulator-difficulty">Средний уровень</div>
+                        </div>
+                        <div class="simulator-body">
+                            <p>Отрабатывайте правильные реакции на звонки мошенников. Учитесь завершать опасные разговоры.</p>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Прогресс</span>
+                                    <span id="simulator2-progress">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="simulator2-bar" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%;" onclick="startSimulator('phone-simulator')">
+                                <i class="fas fa-play icon"></i> Запустить тренажер
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Тренажер 3 -->
+                    <div class="simulator-card">
+                        <div class="simulator-header" style="background: linear-gradient(135deg, var(--passwords-color), #ab47bc);">
+                            <div class="simulator-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h3>Конструктор паролей</h3>
+                            <div class="simulator-difficulty">Начальный уровень</div>
+                        </div>
+                        <div class="simulator-body">
+                            <p>Создавайте и проверяйте стойкие пароли. Учитесь использовать менеджеры паролей.</p>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Прогресс</span>
+                                    <span id="simulator3-progress">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="simulator3-bar" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%;" onclick="startSimulator('password-constructor')">
+                                <i class="fas fa-play icon"></i> Запустить тренажер
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Тренажер 4 -->
+                    <div class="simulator-card">
+                        <div class="simulator-header" style="background: linear-gradient(135deg, var(--social-color), #29b6f6);">
+                            <div class="simulator-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Проверка безопасности</h3>
+                            <div class="simulator-difficulty">Средний уровень</div>
+                        </div>
+                        <div class="simulator-body">
+                            <p>Анализируйте настройки безопасности аккаунтов. Учитесь настраивать защиту в соцсетях.</p>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Прогресс</span>
+                                    <span id="simulator4-progress">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="simulator4-bar" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%;" onclick="startSimulator('security-check')">
+                                <i class="fas fa-play icon"></i> Запустить тренажер
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Тренажер 5 -->
+                    <div class="simulator-card">
+                        <div class="simulator-header" style="background: linear-gradient(135deg, var(--gosuslugi-color), #7986cb);">
+                            <div class="simulator-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <h3>Госуслуги: Проверка сайта</h3>
+                            <div class="simulator-difficulty">Средний уровень</div>
+                        </div>
+                        <div class="simulator-body">
+                            <p>Определяйте поддельные сайты Госуслуг. Учитесь проверять легитимность ресурсов.</p>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Прогресс</span>
+                                    <span id="simulator5-progress">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="simulator5-bar" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%;" onclick="startSimulator('gosuslugi-check')">
+                                <i class="fas fa-play icon"></i> Запустить тренажер
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Тренажер 6 -->
+                    <div class="simulator-card">
+                        <div class="simulator-header" style="background: linear-gradient(135deg, var(--puu-color), #66bb6a);">
+                            <div class="simulator-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>ПУУ: Анализ звонка</h3>
+                            <div class="simulator-difficulty">Продвинутый уровень</div>
+                        </div>
+                        <div class="simulator-body">
+                            <p>Анализируйте звонки "техподдержки". Определяйте признаки ПУУ схем.</p>
+                            <div class="progress-container">
+                                <div class="progress-label">
+                                    <span>Прогресс</span>
+                                    <span id="simulator6-progress">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="simulator6-bar" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            <button class="btn" style="width: 100%;" onclick="startSimulator('puu-analysis')">
+                                <i class="fas fa-play icon"></i> Запустить тренажер
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница тестирования -->
+        <div id="test" class="page">
+            <div class="card">
+                <div class="course-header">
+                    <div class="course-header-icon" style="background: linear-gradient(135deg, #ffa000, #ffb300);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="course-header-content">
+                        <h1>Финальное тестирование</h1>
+                        <p>Пройдите тест, чтобы проверить свои знания и получить сертификат.</p>
+                    </div>
+                </div>
+                
+                <div id="testContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница профиля -->
+        <div id="profile" class="page">
+            <div class="card">
+                <div id="profileContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница активного тренажера -->
+        <div id="active-simulator" class="page">
+            <div class="card">
+                <div id="simulatorContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница активного курса -->
+        <div id="active-course" class="page">
+            <div class="card">
+                <div id="courseContent">
+                    <!-- Контент будет загружен динамически -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <!-- Футер -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3><i class="fas fa-shield-alt icon"></i> КиберАкадемия</h3>
+            <p style="margin-bottom: 20px;">Образовательная платформа по кибербезопасности. Учим защищаться от мошенников в цифровом мире.</p>
+            <div style="display: flex; gap: 15px;">
+                <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-vk"></i></a>
+                <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-telegram"></i></a>
+                <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Быстрые ссылки</h3>
+            <ul class="footer-links">
+                <li><a href="#" onclick="showPage('home')">Главная</a></li>
+                <li><a href="#" onclick="showPage('courses')">Все курсы</a></li>
+                <li><a href="#" onclick="showPage('simulators')">Тренажеры</a></li>
+                <li><a href="#" onclick="showPage('test')">Тестирование</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Экстренные контакты</h3>
+            <ul class="footer-links">
+                <li><i class="fas fa-phone icon"></i> Горячая линия Госуслуг: 8-800-100-70-10</li>
+                <li><i class="fas fa-phone icon"></i> Центробанк (финансовое мошенничество): 8-800-250-40-72</li>
+                <li><i class="fas fa-phone icon"></i> МВД (киберпреступления): 8-800-222-74-47</li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Статистика обучения</h3>
+            <p>Пользователей онлайн: <span id="onlineUsers">247</span></p>
+            <p>Тренажеров пройдено сегодня: <span id="todaySimulators">134</span></p>
+            <p>Сертификатов выдано: <span id="totalCertificates">1,892</span></p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px;">
+            <div style="text-align: center;">
+                <p>© 2026 Академия Кибербезопасности. Учебный проект при поддержке. mgau.ru</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Все материалы предоставляются исключительно в образовательных целях</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.9); padding: 8px 18px; border-radius: 12px;">
+                <img src="Цвет зеленый. С полным названием заглавными буквами на русском языке..png" alt="МИЧУРИНСКИЙ ГОСУДАРСТВЕННЫЙ АГРАРНЫЙ УНИВЕРСИТЕТ" style="height: 45px; width: auto;">
+                <div>
+                  
+            </div>
+        </div>
+    </div>
+</footer>
+    </footer>
+    <script src="script.js"></script>
+    </body>
+</html>
