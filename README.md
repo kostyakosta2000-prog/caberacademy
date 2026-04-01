@@ -1,2 +1,2 @@
-# caberacademy
+# cyberacademy
 мой проект на гитхабе
