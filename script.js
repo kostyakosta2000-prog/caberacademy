@@ -18214,3 +18214,286 @@ function downloadMobileCertificate() {
         }
     }, 500);
 }
+// ========== ГЛОБАЛЬНАЯ ОБРАБОТКА КЛАВИШИ ENTER ==========
+
+document.addEventListener('keydown', function(event) {
+    // Проверяем, что нажата именно клавиша Enter (код 13)
+    if (event.key === 'Enter' || event.keyCode === 13) {
+        
+        // ===== 1. ОБРАБОТКА МОДАЛЬНЫХ ОКОН =====
+        
+        // Если открыто окно входа
+        const loginModal = document.getElementById('loginModal');
+        if (loginModal && loginModal.style.display === 'flex') {
+            const loginBtn = document.querySelector('#loginForm button[type="submit"]');
+            if (loginBtn && !loginBtn.disabled) {
+                event.preventDefault();
+                loginBtn.click();
+                return;
+            }
+        }
+        
+        // Если открыто окно регистрации
+        const registerModal = document.getElementById('registerModal');
+        if (registerModal && registerModal.style.display === 'flex') {
+            const registerBtn = document.querySelector('#registerForm button[type="submit"]');
+            if (registerBtn && !registerBtn.disabled) {
+                event.preventDefault();
+                registerBtn.click();
+                return;
+            }
+        }
+        
+        // ===== 2. ОБРАБОТКА ТЕСТОВ =====
+        
+        // Тест по телефонному мошенничеству
+        if (document.getElementById('testQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('nextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // Тест по фишингу
+        if (document.getElementById('phishingTestQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('phishingNextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // Тест по Госуслугам
+        if (document.getElementById('gosuslugiTestQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('gosuslugiNextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // Тест по ПУУ
+        if (document.getElementById('puuTestQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('puuNextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // Тест по финансам
+        if (document.getElementById('financeTestQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('financeNextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // Тест по паролям
+        if (document.getElementById('passwordsTestQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('passwordsNextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // Тест по соцсетям
+        if (document.getElementById('socialTestQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('socialNextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // Итоговый тест
+        if (document.getElementById('finalTestQuestions')?.style.display === 'block') {
+            const nextButton = document.getElementById('finalNextButton');
+            if (nextButton && !nextButton.disabled) {
+                event.preventDefault();
+                nextButton.click();
+                return;
+            }
+        }
+        
+        // ===== 3. ОБРАБОТКА ТРЕНАЖЕРОВ =====
+        
+        // Тренажер "Фишинг-детектив"
+        const phishingChat = document.getElementById('phishing-chat-container');
+        if (phishingChat && phishingChat.style.display !== 'none') {
+            const activeOption = document.querySelector('.phishing-chat-option:hover');
+            if (activeOption) {
+                event.preventDefault();
+                activeOption.click();
+                return;
+            }
+            // Если нет наведения, берем первый вариант
+            const firstOption = document.querySelector('.phishing-chat-option');
+            if (firstOption) {
+                event.preventDefault();
+                firstOption.click();
+                return;
+            }
+        }
+        
+        // Тренажер "Телефонный симулятор"
+        const phoneChat = document.getElementById('phone-chat-container');
+        if (phoneChat && phoneChat.style.display !== 'none') {
+            const activeOption = document.querySelector('.phone-chat-option:hover');
+            if (activeOption) {
+                event.preventDefault();
+                activeOption.click();
+                return;
+            }
+            const firstOption = document.querySelector('.phone-chat-option');
+            if (firstOption) {
+                event.preventDefault();
+                firstOption.click();
+                return;
+            }
+        }
+        
+        // Тренажер "ПУУ: Анализ звонка"
+        const puuChat = document.getElementById('ai-phone-simulator');
+        if (puuChat && puuChat.style.display !== 'none') {
+            const activeOption = document.querySelector('.ai-response-option:hover');
+            if (activeOption) {
+                event.preventDefault();
+                activeOption.click();
+                return;
+            }
+            const firstOption = document.querySelector('.ai-response-option');
+            if (firstOption) {
+                event.preventDefault();
+                firstOption.click();
+                return;
+            }
+        }
+        
+        // Тренажер "Госуслуги: Проверка сайта"
+        const gosuslugiChat = document.getElementById('gosuslugi-simulator');
+        if (gosuslugiChat && gosuslugiChat.style.display !== 'none') {
+            const activeOption = document.querySelector('.chat-option:hover');
+            if (activeOption) {
+                event.preventDefault();
+                activeOption.click();
+                return;
+            }
+            const firstOption = document.querySelector('.chat-option');
+            if (firstOption) {
+                event.preventDefault();
+                firstOption.click();
+                return;
+            }
+        }
+        
+        // ===== 4. ОБРАБОТКА ПОЛЕЙ ВВОДА =====
+        
+        // Поле для проверки пароля
+        const passwordInput = document.getElementById('password-input');
+        if (passwordInput && document.activeElement === passwordInput) {
+            const checkButton = document.querySelector('#password-result').previousElementSibling;
+            if (checkButton && checkButton.classList.contains('btn')) {
+                event.preventDefault();
+                checkButton.click();
+                return;
+            }
+        }
+        
+        // ===== 5. ОБРАБОТКА ВСПЛЫВАЮЩИХ УВЕДОМЛЕНИЙ =====
+        
+        // Если открыто подтверждение (confirm)
+        const confirmDialog = document.querySelector('.custom-confirm');
+        if (confirmDialog && confirmDialog.style.display === 'flex') {
+            const confirmBtn = confirmDialog.querySelector('.btn-success');
+            if (confirmBtn) {
+                event.preventDefault();
+                confirmBtn.click();
+                return;
+            }
+        }
+    }
+});
+
+// ===== ДОПОЛНИТЕЛЬНО: Enter для выбора варианта в тренажерах при фокусе =====
+
+// Функция для добавления обработки Enter на элементы
+function addEnterSupportToSimulator(selector, clickHandler) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+        el.setAttribute('tabindex', '0');
+        el.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                e.preventDefault();
+                if (clickHandler) {
+                    clickHandler(this);
+                } else {
+                    this.click();
+                }
+            }
+        });
+    });
+}
+
+// Инициализация поддержки Enter для динамических элементов
+function initEnterSupport() {
+    // Для опций в тестах
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                // Добавляем поддержку Enter для новых опций
+                document.querySelectorAll('.option, .chat-option, .phishing-chat-option, .phone-chat-option, .ai-response-option').forEach(opt => {
+                    if (!opt.hasAttribute('tabindex')) {
+                        opt.setAttribute('tabindex', '0');
+                        opt.addEventListener('keydown', function(e) {
+                            if (e.key === 'Enter' || e.keyCode === 13) {
+                                e.preventDefault();
+                                this.click();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
+    
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// Запускаем инициализацию после загрузки страницы
+document.addEventListener('DOMContentLoaded', function() {
+    initEnterSupport();
+    
+    // Добавляем поддержку для уже существующих элементов
+    document.querySelectorAll('.option, .chat-option, .phishing-chat-option, .phone-chat-option, .ai-response-option').forEach(opt => {
+        opt.setAttribute('tabindex', '0');
+        opt.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+});
+// Показываем подсказку о клавише Enter
+if (!localStorage.getItem('enterHintShown')) {
+    const hint = document.createElement('div');
+    hint.className = 'enter-hint show';
+    hint.innerHTML = '💡 Нажмите Enter для быстрого выбора';
+    document.body.appendChild(hint);
+    setTimeout(() => {
+        hint.classList.remove('show');
+        setTimeout(() => hint.remove(), 300);
+    }, 3000);
+    localStorage.setItem('enterHintShown', 'true');
+}
