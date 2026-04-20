@@ -3329,3 +3329,33 @@ padding: 20px;
 grid-template-columns: repeat(4, 1fr);
 }
 }
+/* Подсказка о клавише Enter */
+.enter-hint {
+    position: fixed;
+    bottom: 20px;
+    right: 100px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.enter-hint.show {
+    opacity: 1;
+}
+
+/* Фокус на интерактивных элементах */
+.option:focus-visible,
+.chat-option:focus-visible,
+.phishing-chat-option:focus-visible,
+.phone-chat-option:focus-visible,
+.ai-response-option:focus-visible {
+    outline: 3px solid #4a76a8;
+    outline-offset: 2px;
+    transform: scale(1.02);
+}
