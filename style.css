@@ -3359,3 +3359,289 @@ grid-template-columns: repeat(4, 1fr);
     outline-offset: 2px;
     transform: scale(1.02);
 }
+/* Стили для чата */
+.chat-container {
+    background: #f5f7fa;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.chat-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e6ef;
+}
+
+.chat-header .subtitle {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e6ef;
+}
+
+.message {
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease;
+}
+
+.message.sms {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+}
+
+.message.scammer {
+    background: #ffebee;
+    border-left: 4px solid #f44336;
+}
+
+.message.system {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.message.user {
+    background: #f3e5f5;
+    border-left: 4px solid #9c27b0;
+}
+
+.message.lesson {
+    background: #fff3e0;
+    border-left: 4px solid #ff9800;
+}
+
+.message-text {
+    padding: 12px 15px;
+    border-radius: 0 10px 10px 10px;
+}
+
+.chat-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e0e6ef;
+}
+
+/* ========== ГЛАВНОЕ: СТИЛИ ДЛЯ КНОПОК (КАК В ПУУ) ========== */
+
+/* Обычная кнопка */
+.chat-option {
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border: 2px solid #e0e6ef;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+/* Обычное наведение - СИНИЙ (нейтральные варианты) */
+.chat-option:hover {
+    background: #e3f2fd;
+    border-color: #2196f3;
+    transform: translateX(5px);
+}
+
+/* ОПАСНЫЕ варианты - при наведении КРАСНЫЙ */
+.chat-option.danger {
+    background: #f8f9fa;
+    border: 2px solid #e0e6ef;
+}
+
+.chat-option.danger:hover {
+    background: #ffebee !important;
+    border-color: #d32f2f !important;
+    transform: translateX(5px);
+    color: #d32f2f;
+}
+
+/* БЕЗОПАСНЫЕ варианты - при наведении ЗЕЛЕНЫЙ */
+.chat-option.success {
+    background: #f8f9fa;
+    border: 2px solid #e0e6ef;
+}
+
+.chat-option.success:hover {
+    background: #e8f5e9 !important;
+    border-color: #43a047 !important;
+    transform: translateX(5px);
+    color: #2e7d32;
+}
+
+/* Статистика */
+.chat-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid #e0e6ef;
+}
+
+.chat-stats span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Результаты */
+.result-success, .result-failure {
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.result-success {
+    background: #e8f5e9;
+    border: 2px solid #4caf50;
+}
+
+.result-failure {
+    background: #ffebee;
+    border: 2px solid #f44336;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Стили для иконок в разделе "Рекомендуем начать" */
+.profile-enhanced .recommended-course-icon {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 15px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem !important;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Цвета иконок для разных курсов */
+.profile-enhanced .recommended-course-icon.phishing {
+    background: linear-gradient(135deg, #e53935, #ff8a80);
+}
+
+.profile-enhanced .recommended-course-icon.calls {
+    background: linear-gradient(135deg, #fb8c00, #ffb74d);
+}
+
+.profile-enhanced .recommended-course-icon.gosuslugi {
+    background: linear-gradient(135deg, #5c6bc0, #7986cb);
+}
+
+.profile-enhanced .recommended-course-icon.puu {
+    background: linear-gradient(135deg, #43a047, #81c784);
+}
+
+.profile-enhanced .recommended-course-icon.passwords {
+    background: linear-gradient(135deg, #8e24aa, #ba68c8);
+}
+
+.profile-enhanced .recommended-course-icon.social {
+    background: linear-gradient(135deg, #039be5, #29b6f6);
+}
+
+.profile-enhanced .recommended-course-icon.financial {
+    background: linear-gradient(135deg, #f4511e, #ff8a65);
+}
+
+.profile-enhanced .recommended-course-icon.mobile {
+    background: linear-gradient(135deg, #7b1fa2, #ba68c8);
+}
+/* Иконки в разделе "Продолжить обучение" */
+.profile-enhanced .progress-course-icon {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 15px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem !important;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Иконки в разделе "Завершенные курсы" */
+.profile-enhanced .completed-course-icon {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem !important;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Цвета для иконок в разделе "Продолжить обучение" */
+.profile-enhanced .progress-course-icon.phishing {
+    background: linear-gradient(135deg, #e53935, #ff8a80);
+}
+.profile-enhanced .progress-course-icon.calls {
+    background: linear-gradient(135deg, #fb8c00, #ffb74d);
+}
+.profile-enhanced .progress-course-icon.gosuslugi {
+    background: linear-gradient(135deg, #5c6bc0, #7986cb);
+}
+.profile-enhanced .progress-course-icon.puu {
+    background: linear-gradient(135deg, #43a047, #81c784);
+}
+.profile-enhanced .progress-course-icon.passwords {
+    background: linear-gradient(135deg, #8e24aa, #ba68c8);
+}
+.profile-enhanced .progress-course-icon.social {
+    background: linear-gradient(135deg, #039be5, #29b6f6);
+}
+.profile-enhanced .progress-course-icon.financial {
+    background: linear-gradient(135deg, #f4511e, #ff8a65);
+}
+.profile-enhanced .progress-course-icon.mobile {
+    background: linear-gradient(135deg, #7b1fa2, #ba68c8);
+}
+
+/* Цвета для иконок в разделе "Завершенные курсы" */
+.profile-enhanced .completed-course-icon.phishing {
+    background: linear-gradient(135deg, #e53935, #ff8a80);
+}
+.profile-enhanced .completed-course-icon.calls {
+    background: linear-gradient(135deg, #fb8c00, #ffb74d);
+}
+.profile-enhanced .completed-course-icon.gosuslugi {
+    background: linear-gradient(135deg, #5c6bc0, #7986cb);
+}
+.profile-enhanced .completed-course-icon.puu {
+    background: linear-gradient(135deg, #43a047, #81c784);
+}
+.profile-enhanced .completed-course-icon.passwords {
+    background: linear-gradient(135deg, #8e24aa, #ba68c8);
+}
+.profile-enhanced .completed-course-icon.social {
+    background: linear-gradient(135deg, #039be5, #29b6f6);
+}
+.profile-enhanced .completed-course-icon.financial {
+    background: linear-gradient(135deg, #f4511e, #ff8a65);
+}
+.profile-enhanced .completed-course-icon.mobile {
+    background: linear-gradient(135deg, #7b1fa2, #ba68c8);
+}
