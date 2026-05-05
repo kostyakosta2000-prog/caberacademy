@@ -6793,7 +6793,7 @@ function loadProfilePage() {
                             <i class="fas fa-thumbs-up"></i>
                             Рекомендуем начать
                         </h3>
-                        <span style="color: #666;">на основе ваших интересов</span>
+                        <span style="color: #666;"></span>
                     </div>
                     <div class="recommended-courses-grid">
                         ${recommendedCoursesHTML}
@@ -7375,18 +7375,7 @@ function completeSimulator(simulatorId) {
 
         // Признаки ПУУ-схемы
         const puuIndicators = [
-            { id: 'urgency', name: 'Создание искусственной срочности', detected: false },
-            { id: 'threat', name: 'Угрозы негативных последствий', detected: false },
-            { id: 'remote', name: 'Просьба установить ПО удаленного доступа', detected: false },
-            { id: 'codes', name: 'Требование назвать коды из SMS', detected: false },
-            { id: 'card', name: 'Просьба данных банковской карты', detected: false },
-            { id: 'authority', name: 'Выдача себя за представителя власти/компании', detected: false },
-            { id: 'free', name: 'Предложение "бесплатной" помощи', detected: false },
-            { id: 'virus', name: 'Запугивание вирусами/взломами', detected: false },
-            { id: 'pressure', name: 'Психологическое давление', detected: false },
-            { id: 'official', name: 'Отказ предоставить официальные данные', detected: false },
-            { id: 'callback', name: 'Противодействие перезвону на официальный номер', detected: false },
-            { id: 'personal', name: 'Использование персональной информации для доверия', detected: false }
+
         ];
         // Сценарии диалога с ИИ-мошенником
         const puuScenarios = [
@@ -7599,7 +7588,7 @@ function completeSimulator(simulatorId) {
                 indicators: ['pressure'],
                 options: [
                     {
-                        text: "Позвонить в Microsoft для проверки",
+                        text: "Закончить звонок",
                         type: 'safe_end',
                         effect: { security: +70, indicators: [] },
                         response: "",
@@ -8370,10 +8359,10 @@ const phishingDialogueSteps = [
     },
     {
         sender: "system",
-        text: "📧 <strong>Письмо №3:</strong><br>От: no-reply@google.com<br>Тема: Вход в ваш аккаунт Google с нового устройства",
+        text: "📧 <strong>Письмо №3:</strong><br>От: security-google.com<br>Тема: Вход в ваш аккаунт Google с нового устройства",
         emailContent: `
             <div class="phishing-email-example suspicious">
-                <p><strong>От:</strong> no-reply@google.com</p>
+                <p><strong>От:</strong> security-google.com</p>
                 <p><strong>Кому:</strong> Вы</p>
                 <p><strong>Тема:</strong> Вход в ваш аккаунт Google с нового устройства</p>
                 <hr>
@@ -11228,24 +11217,7 @@ function showNotification(message, type = 'info') {
                             <strong>📋 Сценарий:</strong> Вам звонит "служба безопасности Microsoft". Оператор утверждает, что ваш компьютер заражен вирусом и требует срочных действий.
                         </div>
                         
-                        <!-- Статистика -->
-                        <div class="ai-stats-container">
-                            <div class="ai-stat-card">
-                                <div class="ai-stat-value" id="security-score">100%</div>
-                                <div class="ai-stat-label">Уровень безопасности</div>
-                            </div>
-                            <div class="ai-stat-card">
-                                <div class="ai-stat-value" id="detected-indicators">0/12</div>
-                                <div class="ai-stat-label">Обнаружено признаков ПУУ</div>
-                            </div>
-                            <div class="ai-stat-card">
-                                <div class="ai-stat-card">
-                                    <div class="ai-stat-value" id="conversation-time">0:00</div>
-                                    <div class="ai-stat-label">Длительность разговора</div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                                                
                         <!-- Чат с ИИ -->
                         <div class="ai-chat-container">
                             <div class="ai-chat-messages" id="ai-chat-messages">
@@ -11256,13 +11228,6 @@ function showNotification(message, type = 'info') {
                             </div>
                         </div>
                         
-                        <!-- Индикаторы ПУУ -->
-                        <div class="puu-indicators">
-                            <h4><i class="fas fa-exclamation-triangle"></i> Признаки ПУУ-схемы</h4>
-                            <div class="indicators-grid" id="puu-indicators">
-                                <!-- Индикаторы будут добавляться динамически -->
-                            </div>
-                        </div>
                         
                         <!-- Панель анализа -->
                         <div class="analysis-panel" id="analysis-panel">
@@ -12241,18 +12206,21 @@ const gosuslugiDialogueSteps = [
         options: [
             {
                 text: "Быстро перейти по ссылке и проверить",
+                type: "danger",  // ОПАСНО - красный
                 effect: { security: -40, trust: +30 },
                 response: "📱 Вы перешли на сайт. Похоже на Госуслуги, но адрес странный. Вас просят ввести логин, пароль и код из SMS...",
                 nextStep: 1
             },
             {
                 text: "Игнорировать и удалить SMS",
+                type: "safe",  // БЕЗОПАСНО - зеленый
                 effect: { security: +10, trust: 0 },
                 response: "✅ Вы удалили подозрительное SMS. Это безопасно!",
                 nextStep: 4
             },
             {
                 text: "Проверить официальный сайт gosuslugi.ru",
+                type: "safe",  // БЕЗОПАСНО - зеленый
                 effect: { security: +20, trust: 0 },
                 response: "🌐 Вы зашли на настоящий Госуслуги. Ваш аккаунт в порядке, уведомлений нет.",
                 nextStep: 3
@@ -12265,18 +12233,21 @@ const gosuslugiDialogueSteps = [
         options: [
             {
                 text: "Сообщить код из SMS",
+                type: "danger",  // ОПАСНО - красный
                 effect: { security: -60, trust: +50 },
                 response: "💸 Мошенник получил доступ к вашему аккаунту! Деньги со счета выводятся...",
                 nextStep: 5
             },
             {
                 text: "Отказаться и позвонить в официальную поддержку",
+                type: "safe",  // БЕЗОПАСНО - зеленый
                 effect: { security: +30, trust: -20 },
                 response: "📞 Вы позвонили на номер 8-800-100-70-10. Вам подтвердили, что это мошенники!",
                 nextStep: 4
             },
             {
                 text: "Спросить служебное удостоверение",
+                type: "neutral",  // НЕЙТРАЛЬНО - синий
                 effect: { security: +10, trust: 0 },
                 response: "👮 'Я вышлю фото удостоверения на WhatsApp'. Приходит сфотошопленная картинка.",
                 nextStep: 2
@@ -12289,12 +12260,14 @@ const gosuslugiDialogueSteps = [
         options: [
             {
                 text: "Испугаться и выполнить требования",
+                type: "danger",  // ОПАСНО - красный
                 effect: { security: -50, trust: +40 },
                 response: "🚨 Вы передали данные. Мошенники оформили на вас кредит...",
                 nextStep: 5
             },
             {
                 text: "Прекратить разговор и сообщить в полицию",
+                type: "safe",  // БЕЗОПАСНО - зеленый
                 effect: { security: +40, trust: -30 },
                 response: "🛡 Вы сохранили данные и помогли бороться с мошенниками!",
                 nextStep: 4
@@ -12307,6 +12280,7 @@ const gosuslugiDialogueSteps = [
         options: [
             {
                 text: "Продолжить",
+                type: "neutral",
                 effect: { security: +10, trust: 0 },
                 response: "✅ Вы правильно идентифицировали угрозу!",
                 nextStep: 4
@@ -12316,9 +12290,7 @@ const gosuslugiDialogueSteps = [
     {
         sender: "system",
         text: "🎉 Поздравляем! Вы успешно распознали мошенников и защитили свои данные!",
-        options: [
-        
-        ]
+        options: []
     },
     {
         sender: "system",
@@ -12326,12 +12298,14 @@ const gosuslugiDialogueSteps = [
         options: [
             {
                 text: "Узнать, где я ошибся",
+                type: "neutral",
                 effect: { security: 0, trust: 100 },
                 response: "Анализ ошибок... 1. Перешли по фишинговой ссылке 2. Поверили в срочность 3. Отдали код из SMS",
                 nextStep: 6
             },
             {
                 text: "Попробовать еще раз",
+                type: "neutral",
                 effect: { security: 100, trust: 0 },
                 response: "",
                 nextStep: 0,
@@ -12345,6 +12319,7 @@ const gosuslugiDialogueSteps = [
         options: [
             {
                 text: "Пройти тренажер еще раз",
+                type: "neutral",
                 effect: { security: 100, trust: 0 },
                 response: "",
                 nextStep: 0,
@@ -12353,7 +12328,6 @@ const gosuslugiDialogueSteps = [
         ]
     }
 ];
-
 // Инициализация тренажера (добавляем в window для глобального доступа)
 window.initGosuslugiSimulator = function() {
     gosuslugiCurrentStep = 0;
@@ -12399,10 +12373,18 @@ function showGosuslugiDialogueStep(stepIndex) {
     // Очищаем предыдущие варианты ответов
     chatInput.innerHTML = '';
     
-    // Добавляем новые варианты ответов
+    // Добавляем новые варианты ответов с типами (как в ПУУ!)
     dialogue.options.forEach((option, index) => {
         const button = document.createElement('button');
-        button.className = 'chat-option';
+        // Добавляем класс в зависимости от типа: danger, safe, neutral
+        let typeClass = '';
+        if (option.type === 'danger') {
+            typeClass = 'danger';
+        } else if (option.type === 'safe') {
+            typeClass = 'success';
+        }
+        button.className = `chat-option ${typeClass}`;
+        
         button.textContent = option.text;
         button.onclick = () => selectGosuslugiDialogueOption(stepIndex, index);
         chatInput.appendChild(button);
@@ -12435,8 +12417,18 @@ function selectGosuslugiDialogueOption(stepIndex, optionIndex) {
         const chatMessages = document.getElementById('gosuslugi-chat-messages');
         const responseDiv = document.createElement('div');
         responseDiv.className = 'message user';
-        responseDiv.innerHTML = `<div class="message-text"><strong>Вы:</strong> ${option.response}</div>`;
+        responseDiv.innerHTML = `<div class="message-text"><strong>Вы:</strong> ${option.text}</div>`;
         chatMessages.appendChild(responseDiv);
+        
+        // Показываем ответ системы/мошенника (если есть)
+        if (option.response && !option.response.includes("Вы удалили") && 
+            !option.response.includes("Вы зашли на настоящий") &&
+            !option.response.includes("Вы позвонили")) {
+            const systemDiv = document.createElement('div');
+            systemDiv.className = `message ${dialogue.sender === 'scammer' ? 'scammer' : 'system'}`;
+            systemDiv.innerHTML = `<div class="message-text">${option.response}</div>`;
+            chatMessages.appendChild(systemDiv);
+        }
         
         // Прокручиваем чат вниз
         chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -12445,7 +12437,6 @@ function selectGosuslugiDialogueOption(stepIndex, optionIndex) {
     // Переход к следующему шагу или рестарт
     setTimeout(() => {
         if (option.restart) {
-            // Здесь вызываем инициализацию тренажера заново
             window.initGosuslugiSimulator();
         } else {
             showGosuslugiDialogueStep(option.nextStep);
@@ -12481,10 +12472,9 @@ function showGosuslugiFinalResult(isFailure) {
                 <h3>💥 Требуется обучение!</h3>
                 <p>Вы стали жертвой мошенников. Изучите правила безопасности:</p>
                 <ul>
-                    <li>Официальный домен: <strong>gosuslugi.ru</strong></li>
+                    <li>Всегда заходите только на официальные сайты</li>
                     <li>Никогда не переходите по ссылкам из SMS/email</li>
                     <li>Коды из SMS никому не сообщайте</li>
-                    <li>При сомнениях звоните: 8-800-100-70-10</li>
                 </ul>
             </div>
         `;
