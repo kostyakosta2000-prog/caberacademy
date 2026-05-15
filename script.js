@@ -3864,820 +3864,423 @@ wevtutil epl System system_backup.evtx</pre>
     title: 'Пароли и аутентификация',
     icon: 'fa-key',
     color: 'passwords',
-    description: 'Научитесь создавать надежные пароли, использовать менеджеры паролей и двухфакторную аутентификацию с учётом российских реалий.',
+    description: 'Научитесь создавать надёжные пароли, использовать менеджеры паролей и двухфакторную аутентификацию для защиты своих аккаунтов.',
     lessons: [
         { 
-            title: 'Основы безопасности паролей в России', 
+            title: 'Основы безопасности паролей', 
             duration: '15 мин',
             content: `
-                <h3>Почему пароли так важны для россиян?</h3>
-                <p><strong>Пароль</strong> — это не просто ключ от аккаунта, это защита ваших денег в онлайн-банках, доступ к Госуслугам, и сохранность персональных данных в условиях цифровой трансформации России.</p>
+                <h3>Почему пароли так важны?</h3>
+                <p><strong>Пароль</strong> — это ключ к вашим цифровым аккаунтам: почте, социальным сетям, онлайн-банкам, государственным порталам и другим сервисам. Надёжный пароль — первая линия защиты ваших данных.</p>
                 
-                <h4>Особенности российской практики использования паролей:</h4>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
-                    <div style="flex: 1; min-width: 250px; background-color: #ffebee; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #d32f2f;"><i class="fas fa-exclamation-triangle"></i> Традиционные проблемы в Рунете</h4>
-                        <ul>
-                            <li><strong>Кириллические пароли</strong> — не все системы корректно обрабатывают</li>
-                            <li><strong>Номера телефонов</strong> — часто используются как пароли</li>
-                            <li><strong>Паспортные данные</strong> — даты рождения и серии паспортов</li>
-                            <li><strong>Простые комбинации</strong> — qwerty, йцукен, 123456</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="flex: 1; min-width: 250px; background-color: #fff3e0; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #f57c00;"><i class="fas fa-shield-alt"></i> Российские угрозы безопасности</h4>
-                        <ul>
-                            <li><strong>Целевой фишинг</strong> на Сбербанк, Тинькофф, Госуслуги</li>
-                            <li><strong>Социальная инженерия</strong> с использованием паспортных данных</li>
-                            <li><strong>Утечки баз данных</strong> российских сервисов</li>
-                            <li><strong>SIM-своппинг</strong> для обхода SMS-аутентификации</li>
-                        </ul>
-                    </div>
+                <h4>Распространённые ошибки при создании паролей:</h4>
+                <div class="simulator" style="margin: 20px 0; background-color: #ffebee; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #d32f2f;"><i class="fas fa-exclamation-triangle"></i> Чего делать НЕ стоит:</h4>
+                    <ul>
+                        <li><strong>Простые комбинации</strong> — qwerty, 123456, password</li>
+                        <li><strong>Личная информация</strong> — даты рождения, имена, номера телефонов</li>
+                        <li><strong>Один пароль для всех сервисов</strong> — если один сайт взломают, все аккаунты под угрозой</li>
+                        <li><strong>Слишком короткие пароли</strong> — менее 8 символов взламываются за секунды</li>
+                    </ul>
                 </div>
                 
-                <h4>Статистика по России, которая вас удивит:</h4>
+                <h4>Статистика, которая вас удивит:</h4>
                 <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; margin: 20px 0;">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                         <div style="text-align: center; padding: 15px;">
-                            <div style="font-size: 2rem; color: #d32f2f; font-weight: bold;">47%</div>
-                            <div>россиян используют один пароль для всех аккаунтов</div>
+                            <div style="font-size: 2rem; color: #d32f2f; font-weight: bold;">81%</div>
+                            <div>утечек данных связаны со слабыми паролями</div>
                         </div>
                         <div style="text-align: center; padding: 15px;">
-                            <div style="font-size: 2rem; color: #f57c00; font-weight: bold;">73%</div>
-                            <div>пользователей российских банков не используют менеджеры паролей</div>
+                            <div style="font-size: 2rem; color: #f57c00; font-weight: bold;">65%</div>
+                            <div>людей используют один пароль для нескольких аккаунтов</div>
                         </div>
                         <div style="text-align: center; padding: 15px;">
-                            <div style="font-size: 2rem; color: #1976d2; font-weight: bold;">28%</div>
-                            <div>взломов в России происходит через утечку паролей</div>
+                            <div style="font-size: 2rem; color: #1976d2; font-weight: bold;">30 сек</div>
+                            <div>нужно хакеру, чтобы взломать пароль из 6 символов</div>
                         </div>
                     </div>
                 </div>
                 
-                <h4>Типичные ошибки россиян при создании паролей:</h4>
-                <div style="background-color: #e8f4fd; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                    <h4><i class="fas fa-times-circle"></i> Что делают неправильно:</h4>
-                    <ul>
-                        <li><strong>Использование кириллицы</strong> без учёта кодировок — пароль "пароль" ≠ "password"</li>
-                        <li><strong>Номера документов</strong> — серия/номер паспорта, СНИЛС, ИНН</li>
-                        <li><strong>Даты в российском формате</strong> — ДД.ММ.ГГГГ легко подобрать</li>
-                        <li><strong>Город+год</strong> — москва2024, спб2023</li>
-                        <li><strong>Имена на русском</strong> — александр, наталья, сергей</li>
-                    </ul>
-                </div>
-                
-                <h4>Юридические аспекты в России:</h4>
-                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-                    <thead style="background-color: #5c6bc0; color: white;">
-                        <tr>
-                            <th style="padding: 12px; text-align: left;">Аспект</th>
-                            <th style="padding: 12px; text-align: left;">Правовая база</th>
-                            <th style="padding: 12px; text-align: left;">Последствия</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Хранение паролей</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">152-ФЗ "О персональных данных"</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Ответственность оператора</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Утечка данных</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">КоАП РФ ст. 13.11</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Штрафы до 500 000 ₽</td>
-                        </tr>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Кража аккаунтов</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">УК РФ ст. 159.6</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Уголовная ответственность</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px;">Банковские пароли</td>
-                            <td style="padding: 10px;">ФЗ "О национальной платежной системе"</td>
-                            <td style="padding: 10px;">Двойная аутентификация</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; margin-top: 30px;">
-                    <h4 style="color: #388e3c;"><i class="fas fa-lightbulb"></i> Ключевые выводы для россиян:</h4>
+                <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h4 style="color: #388e3c;"><i class="fas fa-lightbulb"></i> Ключевые выводы:</h4>
                     <ol>
-                        <li><strong>Используйте латиницу</strong> — кириллица может не работать в международных сервисах</li>
-                        <li><strong>Избегайте персональных данных</strong> — номера документов известны многим организациям</li>
-                        <li><strong>Банковские пароли</strong> должны быть самыми сложными</li>
-                        <li><strong>Регулярно проверяйте</strong> утечки на российских сервисах</li>
+                        <li>Используйте уникальные пароли для каждого сервиса</li>
+                        <li>Длина пароля важнее сложности — 12+ символов</li>
+                        <li>Не используйте личную информацию в паролях</li>
+                        <li>Регулярно проверяйте, не утекли ли ваши пароли</li>
                     </ol>
                 </div>
             `,
             completed: false 
         },
         { 
-            title: 'Создание надежных паролей для российских сервисов', 
+            title: 'Как создать надёжный пароль', 
             duration: '18 мин',
             content: `
-                <h3>Особенности паролей для российских цифровых экосистем</h3>
-                <p>Российские сервисы имеют специфические требования и ограничения, которые нужно учитывать при создании паролей.</p>
+                <h3>Создание паролей, которые сложно взломать</h3>
+                <p>Надёжный пароль — это не обязательно что-то невероятно сложное для запоминания. Есть простые методы создания запоминающихся и при этом безопасных паролей.</p>
                 
-                <h4>Требования популярных российских сервисов:</h4>
-                <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 1; min-width: 200px; background-color: #e3f2fd; padding: 20px; border-radius: 8px;">
-                            <h4 style="color: #1976d2;"><i class="fas fa-university"></i> Сбербанк Онлайн</h4>
-                            <ul>
-                                <li>6-20 символов</li>
-                                <li>Латиница обязательно</li>
-                                <li>Цифры обязательны</li>
-                                <li>Блокировка после 5 ошибок</li>
-                            </ul>
-                        </div>
-                        
-                        <div style="flex: 1; min-width: 200px; background-color: #fff3e0; padding: 20px; border-radius: 8px;">
-                            <h4 style="color: #ff9800;"><i class="fas fa-passport"></i> Госуслуги</h4>
-                            <ul>
-                                <li>8+ символов</li>
-                                <li>Латиница/кириллица</li>
-                                <li>2FA обязательно</li>
-                                <li>СМС подтверждение</li>
-                            </ul>
-                        </div>
-                        
-                        <div style="flex: 1; min-width: 200px; background-color: #fce4ec; padding: 20px; border-radius: 8px;">
-                            <h4 style="color: #ad1457;"><i class="fas fa-envelope"></i> Яндекс</h4>
-                            <ul>
-                                <li>6-30 символов</li>
-                                <li>Любые символы</li>
-                                <li>Проверка на утечки</li>
-                                <li>Резервные email</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <h4>Методы создания надёжных паролей:</h4>
                 
-                <h4>Методы создания паролей с учётом русской ментальности:</h4>
                 <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                    <h4><i class="fas fa-brain"></i> Учёт культурных особенностей:</h4>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>1. Метод русских пословиц и поговорок</h5>
-                        <p>Использование знакомых фраз с преобразованием:</p>
-                        <p><strong>Пословица:</strong> "Волков бояться — в лес не ходить"</p>
-                        <p><strong>Преобразование:</strong> Первые буквы слов + замена</p>
-                        <p><strong>Результат:</strong> <code>Вбвлнх2024!</code> → <code>Vbvlh2024!</code></p>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>2. Использование отчеств в паролях</h5>
-                        <p>Отчества менее предсказуемы, чем имена:</p>
-                        <p><strong>Исходные данные:</strong> Петровна, Иванович, Сергеевич</p>
-                        <p><strong>Трансформация:</strong> Обратный порядок + символы</p>
-                        <p><strong>Результат:</strong> <code>anvorteP@73</code>, <code>hcivonaI#82</code></p>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>3. Города и реки России</h5>
-                        <p>Использование географических названий с цифрами:</p>
-                        <p><strong>Примеры:</strong> Волга2024!, Байкал#73, Калининград@85</p>
-                        <p><strong>Рекомендация:</strong> Добавлять случайные символы между словами</p>
-                        <p><strong>Безопасный вариант:</strong> <code>Волга_Байкал_Камчатка#73</code></p>
-                    </div>
+                    <h4 style="color: #1976d2;"><i class="fas fa-brain"></i> Метод 1: Фразы-пароли</h4>
+                    <p>Используйте длинную фразу, которую легко запомнить, но трудно подобрать.</p>
+                    <p><strong>Пример:</strong> "Мой любимый кот ест рыбу каждый день!"</p>
+                    <p><strong>Преобразование:</strong> Можно взять первые буквы: <code>Млкреркд!</code> → <code>Mlkrerqd!</code></p>
+                    <p><strong>Ещё проще:</strong> Используйте саму фразу без пробелов: <code>МойЛюбимыйКотЕстРыбуКаждыйДень</code></p>
                 </div>
                 
-                <h4>Криптографическая стойкость русскоязычных паролей:</h4>
-                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-                    <thead style="background-color: #7b1fa2; color: white;">
-                        <tr>
-                            <th style="padding: 12px; text-align: left;">Тип пароля</th>
-                            <th style="padding: 12px; text-align: left;">Энтропия (бит)</th>
-                            <th style="padding: 12px; text-align: left;">Время взлома</th>
-                            <th style="padding: 12px; text-align: left;">Рекомендация</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Русское имя+год</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">~20</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">минуты</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">❌ Избегать</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Номер паспорта</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">~25</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">часы</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">❌ Опасно</td>
-                        </tr>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">3 русских слова</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">~38</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">месяцы</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">⚠️ Приемлемо</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px;">4 русских слова+символы</td>
-                            <td style="padding: 10px;">~52</td>
-                            <td style="padding: 10px;">годы</td>
-                            <td style="padding: 10px;">✅ Хорошо</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <h4>Особенности для российских банков:</h4>
-                <div style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4 style="color: #388e3c;"><i class="fas fa-credit-card"></i> Банковские пароли — особая категория:</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
-                        <div>
-                            <h5>Что НЕЛЬЗЯ использовать:</h5>
-                            <ul style="color: #d32f2f;">
-                                <li>❌ Номер карты или счета</li>
-                                <li>❌ Код из СМС</li>
-                                <li>❌ Паспортные данные</li>
-                                <li>❌ Даты рождения</li>
-                                <li>❌ Простые комбинации</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Что НУЖНО использовать:</h5>
-                            <ul style="color: #388e3c;">
-                                <li>✅ 12+ случайных символов</li>
-                                <li>✅ Разные пароли для карт</li>
-                                <li>✅ Обязательная 2FA</li>
-                                <li>✅ Менеджер паролей</li>
-                                <li>✅ Регулярная проверка</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div style="background-color: #f3e5f5; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4 style="color: #8e24aa;"><i class="fas fa-random"></i> Метод 2: Случайные слова</h4>
+                    <p>Выберите 4-5 случайных, не связанных между собой слова.</p>
+                    <p><strong>Пример:</strong> <code>КрасныйТелефонПустыняЧашка</code></p>
+                    <p><strong>Почему это работает:</strong> Такой пароль длинный (много символов), но его легко запомнить, представив смешную картинку.</p>
                 </div>
                 
-                <h4>Российские генераторы и проверки паролей:</h4>
-                <div style="background-color: #fff3e0; padding: 25px; border-radius: 10px; margin-top: 30px;">
-                    <h4 style="color: #f57c00;"><i class="fas fa-tools"></i> Инструменты для россиян:</h4>
-                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
-                        <div style="flex: 1; min-width: 200px; background-color: #f5f5f5; padding: 25px; border-radius: 8px;">
-                            <h5>Генераторы</h5>
-                            <ul>
-                                <li>Kaspersky Password Manager</li>
-                                <li>RU Password Generator</li>
-                                <li>Онлайн-генераторы на русском</li>
-                            </ul>
-                        </div>
-                        <div style="flex: 1; min-width: 200px; background-color: #e3f2fd; padding: 25px; border-radius: 8px;">
-                            <h5>Проверки</h5>
-                            <ul>
-                                <li>РОЦИТ — проверка паролей</li>
-                                <li>Have I Been Pwned RU</li>
-                                <li>Центр цифровой экспертизы</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            `,
-            completed: false 
-        },
-        { 
-            title: 'Менеджеры паролей в российском контексте', 
-            duration: '20 мин',
-            content: `
-                <h3>Выбор и использование менеджеров паролей в России</h3>
-                <p>В условиях импортозамещения и особенностей российского законодательства важно правильно выбрать инструмент для хранения паролей.</p>
-                
-                <h4>Классификация менеджеров паролей для России:</h4>
-                <div style="background-color: #e3f2fd; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4><i class="fas fa-filter"></i> Категории по юрисдикции:</h4>
-                    
-                    <div style="margin: 20px 0;">
-                        <h5>1. Российские разработки 🇷🇺</h5>
-                        <p><strong>Преимущества:</strong> Соответствие 152-ФЗ, русская поддержка, локальные серверы</p>
-                        <p><strong>Примеры:</strong> Kaspersky Password Manager, MyPassword, RuPass</p>
-                        <p><strong>Для кого:</strong> Государственные организации, госкомпании, ценные данные</p>
-                    </div>
-                    
-                    <div style="margin: 20px 0;">
-                        <h5>2. Международные с российскими серверами 🌍</h5>
-                        <p><strong>Преимущества:</strong> Глобальные стандарты, русский интерфейс</p>
-                        <p><strong>Примеры:</strong> Bitwarden (self-hosted), 1Password (бизнес)</p>
-                        <p><strong>Для кого:</strong> Бизнес с международными операциями</p>
-                    </div>
-                    
-                    <div style="margin: 20px 0;">
-                        <h5>3. Локальные решения 💻</h5>
-                        <p><strong>Преимущества:</strong> Полный контроль, офлайн доступ</p>
-                        <p><strong>Примеры:</strong> KeePass, Enpass, PassKeep</p>
-                        <p><strong>Для кого:</strong> Пользователи, не доверяющие облакам</p>
-                    </div>
+                <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4 style="color: #388e3c;"><i class="fas fa-calculator"></i> Метод 3: Основа + сервис</h4>
+                    <p>Создайте "мастер-пароль" и добавляйте к нему что-то уникальное для каждого сервиса.</p>
+                    <p><strong>Пример основы:</strong> <code>СинийТортПлывет58!</code></p>
+                    <p><strong>Для Gmail:</strong> <code>СинийТортПлывет58!Gm</code></p>
+                    <p><strong>Для Facebook:</strong> <code>СинийТортПлывет58!Fb</code></p>
+                    <p><strong>Важно:</strong> Основа должна быть действительно сложной!</p>
                 </div>
                 
-                <h4>Сравнение популярных решений в России:</h4>
+                <h4>Требования к надёжному паролю:</h4>
                 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
                     <thead style="background-color: #5c6bc0; color: white;">
-                        <tr>
-                            <th style="padding: 12px; text-align: left;">Менеджер</th>
-                            <th style="padding: 12px; text-align: left;">Цена (руб/мес)</th>
-                            <th style="padding: 12px; text-align: left;">Русский язык</th>
-                            <th style="padding: 12px; text-align: left;">Серверы в РФ</th>
-                            <th style="padding: 12px; text-align: left;">Поддержка 2FA</th>
-                        </tr>
+                        <tr><th style="padding: 12px;">Характеристика</th><th style="padding: 12px;">Рекомендация</th></tr>
                     </thead>
                     <tbody>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Kaspersky</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">300-900 ₽</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">✅ Полностью</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">✅ Да</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">✅ TOTP, SMS</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Bitwarden</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">0-120 ₽</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">✅ Частично</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">⚠️ Self-hosted</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">✅ TOTP, YubiKey</td>
-                        </tr>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">1Password</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">250-500 ₽</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">❌ Нет</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">❌ Нет</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">✅ TOTP</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px;">KeePass</td>
-                            <td style="padding: 10px;">0 ₽</td>
-                            <td style="padding: 10px;">✅ Плагины</td>
-                            <td style="padding: 10px;">✅ Локально</td>
-                            <td style="padding: 10px;">✅ Плагины</td>
-                        </tr>
+                        <tr style="background-color: #f5f5f5;"><td style="padding: 10px;">Длина</td><td style="padding: 10px;">Минимум 12 символов, лучше 16+</td></tr>
+                        <tr><td style="padding: 10px;">Символы</td><td style="padding: 10px;">Заглавные, строчные буквы, цифры, спецсимволы</td></tr>
+                        <tr style="background-color: #f5f5f5;"><td style="padding: 10px;">Уникальность</td><td style="padding: 10px;">Разные пароли для разных сервисов</td></tr>
+                        <tr><td style="padding: 10px;">Непредсказуемость</td><td style="padding: 10px;">Не использовать словарные слова, имена, даты</td></tr>
                     </tbody>
                 </table>
                 
-                <h4>Юридические аспекты хранения паролей в России:</h4>
-                <div style="background-color: #fff3e0; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4 style="color: #f57c00;"><i class="fas fa-gavel"></i> Правовые требования:</h4>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>152-ФЗ "О персональных данных"</h5>
-                        <p><strong>Требования:</strong></p>
-                        <ul>
-                            <li>Хранение на территории РФ для граждан РФ</li>
-                            <li>Согласие на обработку ПДн</li>
-                            <li>Уведомление Роскомнадзора</li>
-                            <li>Защита от несанкционированного доступа</li>
-                        </ul>
-                        <p><strong>Вывод:</strong> Для корпоративного использования выбирайте решения с российскими серверами.</p>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>ФЗ "О критической информационной инфраструктуре"</h5>
-                        <p><strong>Для организаций КИИ:</strong></p>
-                        <ul>
-                            <li>Обязательная сертификация СЗИ</li>
-                            <li>Требования ФСТЭК и ФСБ</li>
-                            <li>Локальное хранение паролей</li>
-                            <li>Аудит и мониторинг</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h4>Интеграция с российскими сервисами:</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-                    <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #388e3c;"><i class="fab fa-yandex"></i> Яндекс экосистема</h4>
-                        <ul>
-                            <li><strong>Почта</strong> — автоматический вход</li>
-                            <li><strong>Диск</strong> — хранение резервных копий</li>
-                            <li><strong>Браузер</strong> — интеграция паролей</li>
-                            <li><strong>Такси/Лавка</strong> — платежные данные</li>
-                        </ul>
-                        <p><strong>Рекомендация:</strong> Используйте менеджер, интегрирующийся с Яндекс.Браузер</p>
-                    </div>
-                    
-                    <div style="background-color: #f3e5f5; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #7b1fa2;"><i class="fas fa-mobile-alt"></i> Мобильные приложения РФ</h4>
-                        <ul>
-                            <li><strong>Госуслуги</strong> — отдельный мастер-пароль</li>
-                            <li><strong>Сбербанк</strong> — биометрия + пароль</li>
-                            <li><strong>Тинькофф</strong> — PIN + отпечаток</li>
-                            <li><strong>ВТБ</strong> — графический ключ</li>
-                        </ul>
-                        <p><strong>Особенность:</strong> Многие банки не позволяют копировать пароли</p>
-                    </div>
-                    
-                    <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #1976d2;"><i class="fas fa-briefcase"></i> Корпоративные системы</h4>
-                        <ul>
-                            <li><strong>1С</strong> — отдельные пароли для ролей</li>
-                            <li><strong>Контур</strong> — ЭЦП + пароль</li>
-                            <li><strong>СБИС</strong> — сертификаты + пароль</li>
-                            <li><strong>Диадок</strong> — токены + пароль</li>
-                        </ul>
-                        <p><strong>Важно:</strong> Для 1С используйте отдельный менеджер</p>
-                    </div>
-                </div>
-                
-                <h4>Рекомендации для разных категорий пользователей:</h4>
-                <div style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; margin-top: 30px;">
-                    <h4 style="color: #388e3c;"><i class="fas fa-users"></i> Кому что подходит:</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
-                        <div>
-                            <h5>Физические лица</h5>
-                            <ul>
-                                <li><strong>Начинающие:</strong> Kaspersky (простота)</li>
-                                <li><strong>Продвинутые:</strong> Bitwarden (гибкость)</li>
-                                <li><strong>Опасающиеся:</strong> KeePass (офлайн)</li>
-                                <li><strong>Семейные:</strong> 1Password Families</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Организации</h5>
-                            <ul>
-                                <li><strong>Малый бизнес:</strong> Bitwarden Teams</li>
-                                <li><strong>Средний бизнес:</strong> 1Password Business</li>
-                                <li><strong>Госорганизации:</strong> Kaspersky</li>
-                                <li><strong>КИИ:</strong> Локальные решения</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="simulator" style="margin: 20px 0; background-color: #fff3e0; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #ff9800;"><i class="fas fa-chart-line"></i> Как быстро взламывают пароли:</h4>
+                    <ul>
+                        <li><strong>6 символов</strong> — менее 1 секунды</li>
+                        <li><strong>8 символов</strong> — около 5 минут</li>
+                        <li><strong>10 символов</strong> — около 5 месяцев</li>
+                        <li><strong>12 символов</strong> — более 200 лет!</li>
+                    </ul>
+                    <p><em>При использовании всех типов символов (A-Z, a-z, 0-9, спецсимволы)</em></p>
                 </div>
             `,
             completed: false 
         },
         { 
-            title: 'Двухфакторная аутентификация в России', 
+    title: 'Менеджеры паролей', 
+    duration: '20 мин',
+    content: `
+        <h3>Как управлять множеством паролей без головной боли</h3>
+        <p>Человек не может запомнить десятки сложных уникальных паролей. Для этого существуют менеджеры паролей — программы, которые безопасно хранят все ваши пароли.</p>
+        
+        <h4>Что такое менеджер паролей?</h4>
+        <p>Это программа, которая:</p>
+        <ul>
+            <li>Хранит все ваши пароли в зашифрованном виде</li>
+            <li>Генерирует случайные надёжные пароли для новых аккаунтов</li>
+            <li>Автоматически подставляет пароли при входе на сайты</li>
+            <li>Синхронизирует пароли между всеми вашими устройствами</li>
+        </ul>
+        
+        <h4>Популярные менеджеры паролей:</h4>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <thead style="background-color: #5c6bc0; color: white;">
+                <tr><th style="padding: 12px;">Менеджер</th><th style="padding: 12px;">Особенности</th><th style="padding: 12px;">Цена</th></tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f5f5f5;"><td style="padding: 10px;"><strong>Bitwarden</strong></td><td style="padding: 10px;">Открытый код, кроссплатформенный</td><td style="padding: 10px;">Бесплатно / $10 в год</td></tr>
+                <tr><td style="padding: 10px;"><strong>1Password</strong></td><td style="padding: 10px;">Удобный интерфейс, отличная поддержка</td><td style="padding: 10px;">от $2.99/мес</td></tr>
+                <tr style="background-color: #f5f5f5;"><td style="padding: 10px;"><strong>Kaspersky Password Manager</strong></td><td style="padding: 10px;">От российской компании «Лаборатория Касперского»</td><td style="padding: 10px;">Бесплатно / от 590₽/год</td></tr>
+                <tr><td style="padding: 10px;"><strong>Apple Keychain</strong></td><td style="padding: 10px;">Встроен в устройства Apple</td><td style="padding: 10px;">Бесплатно</td></tr>
+                <tr style="background-color: #f5f5f5;"><td style="padding: 10px;"><strong>Google Password Manager</strong></td><td style="padding: 10px;">Встроен в Chrome и Android</td><td style="padding: 10px;">Бесплатно</td></tr>
+                <tr><td style="padding: 10px;"><strong>KeePass</strong></td><td style="padding: 10px;">Локальное хранение, максимальная безопасность</td><td style="padding: 10px;">Бесплатно</td></tr>
+                <tr style="background-color: #f5f5f5;"><td style="padding: 10px;"><strong>NordPass</strong></td><td style="padding: 10px;">Простой интерфейс, хорошая безопасность</td><td style="padding: 10px;">от $1.69/мес</td></tr>
+                <tr><td style="padding: 10px;"><strong>Proton Pass</strong></td><td style="padding: 10px;">От создателей Proton Mail, сквозное шифрование</td><td style="padding: 10px;">Бесплатно / от $2/мес</td></tr>
+            </tbody>
+        </table>
+        
+        <h4>Российские решения для хранения паролей:</h4>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div style="background-color: white; padding: 15px; border-radius: 8px;">
+                    <h5 style="color: #1976d2;"><i class="fas fa-shield-alt"></i> Kaspersky Password Manager</h5>
+                    <p>Популярное решение от «Лаборатории Касперского». Бесплатная версия позволяет хранить до 15 паролей на одном устройстве. Платная версия — неограниченное количество и синхронизация между устройствами.</p>
+                </div>
+                <div style="background-color: white; padding: 15px; border-radius: 8px;">
+                    <h5 style="color: #1976d2;"><i class="fas fa-passport"></i> Госуслуги (ЕСИА)</h5>
+                    <p>Государственная система ЕСИА (Единая система идентификации и аутентификации) позволяет использовать единый аккаунт для доступа ко многим государственным сервисам. Это не полноценный менеджер паролей, но удобное решение для госуслуг.</p>
+                </div>
+                <div style="background-color: white; padding: 15px; border-radius: 8px;">
+                    <h5 style="color: #1976d2;"><i class="fas fa-cloud"></i> Облачные решения от провайдеров</h5>
+                    <p>Многие российские облачные провайдеры (Яндекс.Диск, Облако Mail.ru) предлагают встроенные менеджеры паролей в своих браузерах или приложениях.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h4>Как выбрать менеджер паролей:</h4>
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <h4 style="color: #388e3c;"><i class="fas fa-clipboard-list"></i> Критерии выбора:</h4>
+            <ul>
+                <li><strong>Безопасность</strong> — использует ли шифрование (AES-256)</li>
+                <li><strong>Кроссплатформенность</strong> — работает ли на всех ваших устройствах (Windows, macOS, iOS, Android, Linux)</li>
+                <li><strong>Удобство использования</strong> — насколько просто им пользоваться</li>
+                <li><strong>Генератор паролей</strong> — есть ли функция создания надёжных паролей</li>
+                <li><strong>Двухфакторная аутентификация</strong> — поддерживает ли</li>
+                <li><strong>Синхронизация между устройствами</strong> — доступны ли пароли везде</li>
+            </ul>
+        </div>
+        
+        <div class="simulator" style="margin: 20px 0; background-color: #fff3e0; padding: 20px; border-radius: 10px;">
+            <h4 style="color: #ff9800;"><i class="fas fa-shield-alt"></i> Мастер-пароль — ваш главный секрет</h4>
+            <p>Менеджер паролей защищён одним главным паролем — <strong>мастер-паролем</strong>. Если вы его забудете, доступ ко всем паролям будет потерян навсегда.</p>
+            <p><strong>Требования к мастер-паролю:</strong></p>
+            <ul>
+                <li>Минимум 12-16 символов</li>
+                <li>Не используйте его нигде больше</li>
+                <li>Никому не сообщайте</li>
+                <li>Запишите его на бумаге и храните в безопасном месте</li>
+            </ul>
+        </div>
+        
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h4 style="color: #1976d2;"><i class="fas fa-rocket"></i> Как начать использовать менеджер паролей:</h4>
+            <ol>
+                <li>Выберите менеджер (начните с бесплатных: Bitwarden, Kaspersky, встроенные в браузер)</li>
+                <li>Установите приложение на телефон и расширение в браузер</li>
+                <li>Создайте надёжный мастер-пароль (запишите его!)</li>
+                <li>Начните добавлять свои аккаунты (или импортируйте из браузера)</li>
+                <li>При регистрации на новых сайтах используйте генератор паролей</li>
+            </ol>
+        </div>
+        
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h4><i class="fas fa-chart-simple"></i> Сравнение популярных менеджеров:</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background-color: #ddd;">
+                    <th style="padding: 8px;">Функция</th>
+                    <th style="padding: 8px;">Bitwarden</th>
+                    <th style="padding: 8px;">Kaspersky</th>
+                    <th style="padding: 8px;">1Password</th>
+                    <th style="padding: 8px;">Chrome</th>
+                </tr>
+                <tr><td style="padding: 8px;">Бесплатная версия</td><td style="padding: 8px;">✅ Да</td><td style="padding: 8px;">✅ 15 паролей</td><td style="padding: 8px;">❌ Нет</td><td style="padding: 8px;">✅ Да</td></tr>
+                <tr style="background-color: #f5f5f5;"><td style="padding: 8px;">Кроссплатформенность</td><td style="padding: 8px;">✅ Все</td><td style="padding: 8px;">✅ Все</td><td style="padding: 8px;">✅ Все</td><td style="padding: 8px;">⚠️ Браузер</td></tr>
+                <tr><td style="padding: 8px;">Генератор паролей</td><td style="padding: 8px;">✅</td><td style="padding: 8px;">✅</td><td style="padding: 8px;">✅</td><td style="padding: 8px;">✅</td></tr>
+                <tr style="background-color: #f5f5f5;"><td style="padding: 8px;">Проверка утечек</td><td style="padding: 8px;">✅</td><td style="padding: 8px;">✅</td><td style="padding: 8px;">✅</td><td style="padding: 8px;">✅</td></tr>
+                <tr><td style="padding: 8px;">Открытый код</td><td style="padding: 8px;">✅</td><td style="padding: 8px;">❌</td><td style="padding: 8px;">❌</td><td style="padding: 8px;">❌</td></tr>
+            </table>
+        </div>
+    `,
+    completed: false 
+},
+        { 
+            title: 'Двухфакторная аутентификация (2FA)', 
             duration: '22 мин',
             content: `
-                <h3>Особенности 2FA на российских сервисах и правовые аспекты</h3>
-                <p>В России двухфакторная аутентификация имеет специфические особенности, связанные с законодательством и практикой использования.</p>
+                <h3>Второй уровень защиты — двухфакторная аутентификация</h3>
+                <p>Даже самый надёжный пароль может быть украден: через фишинг, утечку базы данных или вирус. Двухфакторная аутентификация (2FA) защищает вас даже в этом случае.</p>
                 
-                <h4>Типы 2FA, популярные в России:</h4>
+                <h4>Что такое двухфакторная аутентификация?</h4>
+                <p>Это метод защиты, который требует подтверждение личности двумя разными способами:</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
-                    <div style="flex: 1; min-width: 200px; background-color: #e3f2fd; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #1976d2;">1. SMS-коды 📱</h4>
-                        <p><strong>Распространенность:</strong> 95% банков, 80% сервисов</p>
-                        <p><strong>Преимущества:</strong> Простота, не требует приложений</p>
-                        <p><strong>Риски:</strong> SIM-своппинг, перехват СМС</p>
-                        <p><strong>Примеры:</strong> Сбербанк, Тинькофф, Госуслуги</p>
+                    <div style="flex: 1; background-color: #e3f2fd; padding: 20px; border-radius: 10px; text-align: center;">
+                        <i class="fas fa-key" style="font-size: 2rem; color: #1976d2;"></i>
+                        <h5>Что вы знаете</h5>
+                        <p>Пароль</p>
                     </div>
-                    
-                    <div style="flex: 1; min-width: 200px; background-color: #fff3e0; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #ff9800;">2. Push-уведомления 🔔</h4>
-                        <p><strong>Распространенность:</strong> 60% банков, 40% сервисов</p>
-                        <p><strong>Преимущества:</strong> Удобство, безопасность</p>
-                        <p><strong>Риски:</strong> Зависимость от интернета</p>
-                        <p><strong>Примеры:</strong> Альфа-Банк, ВТБ, Яндекс</p>
+                    <div style="flex: 1; background-color: #e8f5e9; padding: 20px; border-radius: 10px; text-align: center;">
+                        <i class="fas fa-mobile-alt" style="font-size: 2rem; color: #388e3c;"></i>
+                        <h5>Что у вас есть</h5>
+                        <p>Телефон, токен, ключ</p>
                     </div>
-                    
-                    <div style="flex: 1; min-width: 200px; background-color: #e8f5e9; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #388e3c;">3. Биометрия 🖐️</h4>
-                        <p><strong>Распространенность:</strong> 70% смартфонов</p>
-                        <p><strong>Преимущества:</strong> Максимальное удобство</p>
-                        <p><strong>Риски:</strong> Ложные срабатывания</p>
-                        <p><strong>Примеры:</strong> Apple Pay/Google Pay, банковские приложения</p>
+                    <div style="flex: 1; background-color: #f3e5f5; padding: 20px; border-radius: 10px; text-align: center;">
+                        <i class="fas fa-fingerprint" style="font-size: 2rem; color: #8e24aa;"></i>
+                        <h5>Что вы есть</h5>
+                        <p>Отпечаток, Face ID</p>
                     </div>
                 </div>
                 
-                <h4>Правовые требования к 2FA в России:</h4>
-                <div style="background-color: #f5f5f5; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4><i class="fas fa-balance-scale"></i> Законодательная база:</h4>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>ФЗ "О национальной платежной системе" (статья 9)</h5>
-                        <p><strong>Требования к банкам:</strong></p>
-                        <ul>
-                            <li>Обязательная двухфакторная аутентификация для операций</li>
-                            <li>Разделение пароля и СМС-кода</li>
-                            <li>Лимиты на операции без 2FA</li>
-                            <li>Уведомление клиента о всех операциях</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>Указание ЦБ РФ № 5346-У</h5>
-                        <p><strong>Требования к дистанционному банковскому обслуживанию:</strong></p>
-                        <ul>
-                            <li>Минимум два независимых фактора</li>
-                            <li>Запрет на передачу кодов третьим лицам</li>
-                            <li>Обязательная верификация клиента</li>
-                            <li>Протоколирование всех попыток входа</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h4>Риски и защита для российских пользователей:</h4>
+                <h4>Типы двухфакторной аутентификации:</h4>
                 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-                    <thead style="background-color: #d32f2f; color: white;">
-                        <tr>
-                            <th style="padding: 12px; text-align: left;">Риск</th>
-                            <th style="padding: 12px; text-align: left;">Вероятность</th>
-                            <th style="padding: 12px; text-align: left;">Защита</th>
-                            <th style="padding: 12px; text-align: left;">Пример в России</th>
-                        </tr>
+                    <thead style="background-color: #5c6bc0; color: white;">
+                        <tr><th style="padding: 12px;">Метод</th><th style="padding: 12px;">Как работает</th><th style="padding: 12px;">Безопасность</th></tr>
                     </thead>
                     <tbody>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">SIM-своппинг</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Высокая</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">PIN-код на SIM, приложения</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Кражи у операторов "большой тройки"</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Социальная инженерия</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Очень высокая</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Обучение, недоверие к звонкам</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Звонки "из банка"</td>
-                        </tr>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Мобильные трояны</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Средняя</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Антивирус, официальные магазины</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Вредоносные APK из трекеров</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px;">Фишинг СМС</td>
-                            <td style="padding: 10px;">Высокая</td>
-                            <td style="padding: 10px;">Проверка отправителя, не переходить по ссылкам</td>
-                            <td style="padding: 10px;">СМС "от Сбербанка" с поддельными ссылками</td>
-                        </tr>
+                        <tr style="background-color: #f5f5f5;"><td style="padding: 10px;">SMS-коды</td><td style="padding: 10px;">Код приходит в SMS</td><td style="padding: 10px; color: #f57c00;">Средняя</td></tr>
+                        <tr><td style="padding: 10px;">Приложения-аутентификаторы</td><td style="padding: 10px;">Google Authenticator, Microsoft Authenticator, Authy</td><td style="padding: 10px; color: #388e3c;">Высокая</td></tr>
+                        <tr style="background-color: #f5f5f5;"><td style="padding: 10px;">Push-уведомления</td><td style="padding: 10px;">Подтверждение через приложение</td><td style="padding: 10px; color: #388e3c;">Высокая</td></tr>
+                        <tr><td style="padding: 10px;">Аппаратные ключи</td><td style="padding: 10px;">YubiKey, Titan Key</td><td style="padding: 10px; color: #388e3c;">Максимальная</td></tr>
+                        <tr style="background-color: #f5f5f5;"><td style="padding: 10px;">Биометрия</td><td style="padding: 10px;">Отпечаток пальца, Face ID</td><td style="padding: 10px; color: #388e3c;">Высокая</td></tr>
                     </tbody>
                 </table>
                 
-                <h4>Рекомендации для популярных российских сервисов:</h4>
+                <h4>Почему SMS — не лучший вариант?</h4>
+                <div style="background-color: #ffebee; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <ul>
+                        <li>SMS можно перехватить (SS7-атаки, фальшивые вышки сотовой связи)</li>
+                        <li>Мошенники могут перенести ваш номер на другую SIM-карту (SIM-своппинг)</li>
+                        <li>СМС не работают без сигнала сотовой связи</li>
+                    </ul>
+                    <p><strong>Рекомендация:</strong> Используйте приложения-аутентификаторы вместо SMS, где это возможно.</p>
+                </div>
+                
+                <h4>Как настроить приложение-аутентификатор:</h4>
                 <div style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4 style="color: #388e3c;"><i class="fas fa-check-circle"></i> Где и какую 2FA включать:</h4>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>1. Госуслуги</h5>
-                        <p><strong>Доступно:</strong> СМС, приложение, электронная подпись</p>
-                        <p><strong>Рекомендуем:</strong> Приложение + резервные коды</p>
-                        <p><strong>Важно:</strong> Без 2FA нельзя пользоваться большинством услуг</p>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>2. Сбербанк Онлайн</h5>
-                        <p><strong>Доступно:</strong> СМС, Push, биометрия</p>
-                        <p><strong>Рекомендуем:</strong> Push + подтверждение по отпечатку</p>
-                        <p><strong>Важно:</strong> Включите подтверждение всех операций</p>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>3. Яндекс (почта, диск)</h5>
-                        <p><strong>Доступно:</strong> СМС, приложение, резервные коды</p>
-                        <p><strong>Рекомендуем:</strong> Яндекс.Ключ + резервные коды на бумаге</p>
-                        <p><strong>Важно:</strong> Регулярно обновляйте резервные коды</p>
-                    </div>
-                </div>
-                
-                <h4>Инструменты 2FA для России:</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-                    <div style="background-color: #fff3e0; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #ff9800;"><i class="fab fa-google"></i> Международные</h4>
-                        <ul>
-                            <li><strong>Google Authenticator</strong> — бесплатно, без синхронизации</li>
-                            <li><strong>Microsoft Authenticator</strong> — облачная синхронизация</li>
-                            <li><strong>Authy</strong> — мультиустройство, резервные копии</li>
-                            <li><strong>LastPass Authenticator</strong> — интеграция с менеджером</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background-color: #f3e5f5; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #7b1fa2;"><i class="fab fa-yandex"></i> Российские</h4>
-                        <ul>
-                            <li><strong>Яндекс.Ключ</strong> — для экосистемы Яндекса</li>
-                            <li><strong>КриптоПро</strong> — для государственных услуг</li>
-                            <li><strong>Домен-Карта</strong> — для юридических лиц</li>
-                            <li><strong>RuToken</strong> — аппаратные токены</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #1976d2;"><i class="fas fa-mobile-alt"></i> Банковские</h4>
-                        <ul>
-                            <li><strong>Сбербанк Онлайн</strong> — встроенная 2FA</li>
-                            <li><strong>Тинькофф</strong> — Push + СМС</li>
-                            <li><strong>Альфа-Банк</strong> — Альфа-Клик</li>
-                            <li><strong>ВТБ</strong> — мобильный токен</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; margin-top: 30px;">
-                    <h4 style="color: #388e3c;"><i class="fas fa-shield-alt"></i> Стратегия 2FA для россиянина:</h4>
+                    <h4 style="color: #388e3c;"><i class="fas fa-check-circle"></i> Пошаговая инструкция:</h4>
                     <ol>
-                        <li><strong>Банки</strong> — Push + биометрия (не СМС!)</li>
-                        <li><strong>Госуслуги</strong> — Яндекс.Ключ или приложение</li>
-                        <li><strong>Почта</strong> — Google/Microsoft Authenticator</li>
-                        <li><strong>Соцсети</strong> — приложение аутентификации</li>
-                        <li><strong>Резервные коды</strong> — распечатать и хранить в сейфе</li>
-                        <li><strong>SIM-карта</strong> — установить PIN-код</li>
+                        <li>Скачайте приложение: Google Authenticator, Microsoft Authenticator или Authy</li>
+                        <li>В настройках нужного сервиса (почта, соцсети, банк) найдите "Двухфакторная аутентификация"</li>
+                        <li>Выберите "Приложение-аутентификатор"</li>
+                        <li>Отсканируйте QR-код приложением на телефоне</li>
+                        <li>Введите полученный код для подтверждения</li>
+                        <li><strong>ВАЖНО:</strong> Сохраните резервные коды в безопасном месте!</li>
                     </ol>
+                </div>
+                
+                <div class="simulator" style="margin: 20px 0; background-color: #fff3e0; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #ff9800;"><i class="fas fa-save"></i> Резервные коды — ваша страховка</h4>
+                    <p>При включении 2FA сервис выдаёт резервные коды (обычно 8-10 штук). Они нужны, если вы потеряете телефон или удалите приложение.</p>
+                    <p><strong>Правила хранения резервных кодов:</strong></p>
+                    <ul>
+                        <li>Распечатайте и храните в сейфе или кошельке</li>
+                        <li>НЕ храните в облаке или на компьютере</li>
+                        <li>НЕ храните в том же менеджере паролей</li>
+                        <li>При использовании кода — сгенерируйте новый набор</li>
+                    </ul>
                 </div>
             `,
             completed: false 
         },
         { 
-            title: 'Безопасность паролей в российских организациях', 
-            duration: '25 мин',
-            content: `
-                <h3>Корпоративная безопасность паролей в условиях российского законодательства</h3>
-                <p>Российские компании сталкиваются с уникальными вызовами: требования регуляторов, импортозамещение и специфические угрозы.</p>
-                
-                <h4>Требования российских регуляторов к паролям:</h4>
-                <div style="background-color: #f5f5f5; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4><i class="fas fa-university"></i> Нормативные документы:</h4>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>1. Приказ ФСТЭК № 31 (для ГИС)</h5>
-                        <p><strong>Требования к паролям:</strong></p>
-                        <ul>
-                            <li>Минимум 8 символов (рекомендуется 12)</li>
-                            <li>Три категории символов: буквы, цифры, спецсимволы</li>
-                            <li>Блокировка после 10 неудачных попыток</li>
-                            <li>Смена каждые 90 дней</li>
-                            <li>Хранение только в хэшированном виде</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>2. Требования ЦБ РФ для банков</h5>
-                        <p><strong>Стандарт СТО БР ИББС:</strong></p>
-                        <ul>
-                            <li>Разделение административных и пользовательских паролей</li>
-                            <li>Обязательная двухфакторная аутентификация</li>
-                            <li>Аудит всех операций с паролями</li>
-                            <li>Шифрование при передаче и хранении</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>3. 152-ФЗ для обработчиков ПДн</h5>
-                        <p><strong>Обязательно:</strong></p>
-                        <ul>
-                            <li>Средства криптографической защиты информации (СКЗИ)</li>
-                            <li>Сертифицированные ФСБ средства</li>
-                            <li>Локальное хранение паролей граждан РФ</li>
-                            <li>Уведомление Роскомнадзора об утечках в течение 24 часов</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h4>Российские корпоративные решения:</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-                    <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #1976d2;"><i class="fas fa-lock"></i> PAM-системы (Россия)</h4>
-                        <ul>
-                            <li><strong>Secret Net Studio</strong> (НТЦ ИТ Роса)</li>
-                            <li><strong>Аккорд-АМДЗ</strong> (НПО "Эшелон")</li>
-                            <li><strong>СЗИ "Континент"</strong> (Код безопасности)</li>
-                            <li><strong>Гарда</strong> (Газинформсервис)</li>
-                        </ul>
-                        <p><strong>Особенность:</strong> Сертификация ФСТЭК/ФСБ</p>
-                    </div>
-                    
-                    <div style="background-color: #fff3e0; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #ff9800;"><i class="fas fa-key"></i> Менеджеры паролей (бизнес)</h4>
-                        <ul>
-                            <li><strong>Kaspersky Password Manager Business</strong></li>
-                            <li><strong>Bitwarden Organizations</strong> (self-hosted)</li>
-                            <li><strong>Парус-Корпорация</strong> (российская разработка)</li>
-                            <li><strong>MyPassword Corporate</strong></li>
-                        </ul>
-                        <p><strong>Критерий:</strong> Соответствие 152-ФЗ</p>
-                    </div>
-                    
-                    <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px;">
-                        <h4 style="color: #388e3c;"><i class="fas fa-user-shield"></i> IAM-системы</h4>
-                        <ul>
-                            <li><strong>Active Directory</strong> с русификацией</li>
-                            <li><strong>OpenID Connect</strong> российские провайдеры</li>
-                            <li><strong>SAML 2.0</strong> для госорганизаций</li>
-                            <li><strong>ЕСИА</strong> для интеграции с Госуслугами</li>
-                        </ul>
-                        <p><strong>Требование:</strong> Поддержка российских СКЗИ</p>
-                    </div>
-                </div>
-                
-                <h4>Сценарии защиты для разных типов организаций:</h4>
-                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-                    <thead style="background-color: #5c6bc0; color: white;">
-                        <tr>
-                            <th style="padding: 12px; text-align: left;">Тип организации</th>
-                            <th style="padding: 12px; text-align: left;">Требования</th>
-                            <th style="padding: 12px; text-align: left;">Решение</th>
-                            <th style="padding: 12px; text-align: left;">Бюджет (₽/год)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Малый бизнес (до 50 чел)</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">152-ФЗ, базовая защита</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Bitwarden Self-hosted</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">50 000-100 000</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Средний бизнес (до 500 чел)</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">152-ФЗ, отраслевые стандарты</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Kaspersky Business + AD</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">300 000-700 000</td>
-                        </tr>
-                        <tr style="background-color: #f5f5f5;">
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">Крупный бизнес (500+ чел)</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">СТО БР ИББС, PCI DSS</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">PAM + IAM + менеджер</td>
-                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">1 000 000+</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px;">Госорганизация</td>
-                            <td style="padding: 10px;">Приказ ФСТЭК №31, ГОСТы</td>
-                            <td style="padding: 10px;">СКЗИ + российские решения</td>
-                            <td style="padding: 10px;">По тендеру</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <h4>Импортозамещение в сфере безопасности паролей:</h4>
-                <div style="background-color: #fff3e0; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4 style="color: #f57c00;"><i class="fas fa-exchange-alt"></i> Переход на российские решения:</h4>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>Этапы импортозамещения:</h5>
-                        <ol>
-                            <li><strong>Аудит</strong> — оценка текущих решений</li>
-                            <li><strong>Выбор</strong> — российские аналоги</li>
-                            <li><strong>Пилот</strong> — тестирование в отделе</li>
-                            <li><strong>Внедрение</strong> — поэтапный переход</li>
-                            <li><strong>Обучение</strong> — сотрудники и ИТ-специалисты</li>
-                            <li><strong>Поддержка</strong> — мониторинг и улучшение</li>
-                        </ol>
-                    </div>
-                    
-                    <div style="margin: 15px 0;">
-                        <h5>Российские аналоги популярных решений:</h5>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
-                            <div>
-                                <h6>Иностранное решение → Российский аналог</h6>
-                                <ul>
-                                    <li>LastPass → Kaspersky Password Manager</li>
-                                    <li>1Password → Парус-Корпорация</li>
-                                    <li>CyberArk → Secret Net Studio</li>
-                                    <li>Okta → ЕСИА/Госуслуги Business</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h6>Критерии выбора:</h6>
-                                <ul>
-                                    <li>✅ Сертификация ФСТЭК/ФСБ</li>
-                                    <li>✅ Поддержка 152-ФЗ</li>
-                                    <li>✅ Русская документация</li>
-                                    <li>✅ Локальная поддержка</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Чек-лист для российских организаций:</h4>
-                <div style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h4 style="color: #388e3c;"><i class="fas fa-clipboard-check"></i> Обязательные меры:</h4>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
-                        <div>
-                            <h5>Технические меры</h5>
-                            <ul>
-                                <li>✓ Минимум 12 символов в паролях</li>
-                                <li>✓ Обязательная 2FA для админов</li>
-                                <li>✓ Шифрование паролей по ГОСТ</li>
-                                <li>✓ Аудит всех действий с паролями</li>
-                                <li>✓ Резервное копирование баз паролей</li>
-                                <li>✓ Защита от перебора и атак</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Организационные меры</h5>
-                            <ul>
-                                <li>✓ Политика безопасности паролей</li>
-                                <li>✓ Регулярное обучение сотрудников</li>
-                                <li>✓ План действий при утечках</li>
-                                <li>✓ Ответственные за безопасность</li>
-                                <li>✓ Регулярные проверки и аудиты</li>
-                                <li>✓ Соответствие требованиям регуляторов</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="background-color: #e3f2fd; padding: 25px; border-radius: 10px; margin-top: 30px;">
-                    <h4 style="color: #1976d2;"><i class="fas fa-graduation-cap"></i> Что узнали в этом курсе:</h4>
-                    <ul>
-                        <li>✅ Особенности безопасности паролей в России</li>
-                        <li>✅ Создание паролей для российских сервисов</li>
-                        <li>✅ Выбор менеджеров паролей с учётом законодательства</li>
-                        <li>✅ 2FA на российских платформах</li>
-                        <li>✅ Корпоративная безопасность в условиях РФ</li>
-                    </ul>
-                    <p style="margin-top: 15px; text-align: center; font-weight: bold;">
-                        Эти знания помогут защитить ваши данные в условиях российской цифровой реальности!
-                    </p>
-                </div>
-            `,
-            completed: false 
-        },
+    title: 'Проверка паролей на утечки', 
+    duration: '15 мин',
+    content: `
+        <h3>Как узнать, не утек ли ваш пароль</h3>
+        <p>Ежедневно происходит множество утечек данных с различных сайтов. Ваш пароль может уже находиться в открытом доступе, даже если вы этого не знаете. Российские пользователи особенно уязвимы из-за частых утечек из популярных отечественных сервисов.</p>
+        
+        <h4>Российские сервисы для проверки утечек паролей и email:</h4>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <thead style="background-color: #5c6bc0; color: white;">
+                <tr><th style="padding: 12px;">Сервис</th><th style="padding: 12px;">Что проверяет</th><th style="padding: 12px;">Особенности</th></tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f5f5f5;">
+                    <td style="padding: 10px;"><strong>Утеки.рф</strong></td>
+                    <td style="padding: 10px;">Email, телефон, пароли</td>
+                    <td style="padding: 10px;">Российский сервис, база утечек из рунета</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;"><strong>xLeak.ru</strong></td>
+                    <td style="padding: 10px;">Email, пароли, логины</td>
+                    <td style="padding: 10px;">Проверяет утечки из российских сервисов (Яндекс, Mail, VK и др.)</td>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                    <td style="padding: 10px;"><strong>DLBI (Data Leakage Bureau)</strong></td>
+                    <td style="padding: 10px;">Email, телефон, домен</td>
+                    <td style="padding: 10px;">Профессиональный сервис мониторинга утечек</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;"><strong>Cyble</strong></td>
+                    <td style="padding: 10px;">Email</td>
+                    <td style="padding: 10px;">Международный сервис с поддержкой российских утечек</td>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                    <td style="padding: 10px;"><strong>Kaspersky Password Manager</strong></td>
+                    <td style="padding: 10px;">Сохранённые пароли</td>
+                    <td style="padding: 10px;">Встроенная проверка паролей на утечки</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;"><strong>Яндекс.Браузер (Пароли)</strong></td>
+                    <td style="padding: 10px;">Сохранённые пароли</td>
+                    <td style="padding: 10px;">Встроенная функция проверки паролей</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h4>Какие утечки происходили в России:</h4>
+        <div style="background-color: #ffebee; padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <h4 style="color: #d32f2f;"><i class="fas fa-database"></i> Известные утечки в рунете:</h4>
+            <ul>
+                <li><strong>Яндекс.Еда и Яндекс.Лавка</strong> — утечка данных клиентов</li>
+                <li><strong>Mail.ru Group</strong> — утечка email и паролей</li>
+                <li><strong>ВКонтакте</strong> — несколько крупных утечек данных пользователей</li>
+                <li><strong>Wildberries</strong> — утечка данных продавцов</li>
+                <li><strong>Госуслуги</strong> — попытки взлома и фишинговые атаки на пользователей</li>
+                <li><strong>Тинькофф и Сбербанк</strong> — утечки данных клиентов через подрядчиков</li>
+            </ul>
+        </div>
+        
+        <h4>Что делать, если ваш пароль утёк:</h4>
+        <div class="simulator" style="margin: 20px 0; background-color: #fff3e0; padding: 25px; border-radius: 10px;">
+            <h4 style="color: #ff9800;"><i class="fas fa-exclamation-triangle"></i> Алгоритм действий:</h4>
+            <ol>
+                <li><strong>НЕ паникуйте</strong> — вы не один такой, утечки случаются постоянно</li>
+                <li><strong>Немедленно смените пароль</strong> на скомпрометированном сервисе</li>
+                <li><strong>Смените этот же пароль</strong> везде, где вы его использовали</li>
+                <li><strong>Включите двухфакторную аутентификацию</strong> на всех важных аккаунтах</li>
+                <li><strong>Проверьте банковские операции</strong> — нет ли подозрительных списаний</li>
+                <li><strong>Начните использовать менеджер паролей</strong> для генерации уникальных паролей</li>
+            </ol>
+        </div>
+        
+        <h4>Как защититься от утечек заранее:</h4>
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <h4 style="color: #388e3c;"><i class="fas fa-shield-alt"></i> Профилактические меры:</h4>
+            <ul>
+                <li><strong>Уникальные пароли</strong> — для каждого сервиса свой пароль</li>
+                <li><strong>Длинные пароли</strong> — минимум 12 символов</li>
+                <li><strong>Двухфакторная аутентификация</strong> — везде, где возможно</li>
+                <li><strong>Менеджер паролей</strong> — чтобы не запоминать десятки паролей</li>
+                <li><strong>Не указывайте реальные данные</strong> на сомнительных сайтах</li>
+                <li><strong>Будьте осторожны с фишинговыми письмами</strong> — они часто имитируют уведомления о взломе</li>
+            </ul>
+        </div>
+        
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h4 style="color: #1976d2;"><i class="fas fa-qrcode"></i> Как проверить свой email на утечки (инструкция):</h4>
+            <ol>
+                <li>Зайдите на сайт <strong>Утеки.рф</strong> или <strong>xLeak.ru</strong></li>
+                <li>Введите свой email или телефон в поле поиска</li>
+                <li>Нажмите «Проверить»</li>
+                <li>Если данные найдены в утечках — вы увидите список скомпрометированных сервисов</li>
+                <li>Немедленно смените пароли на этих сервисах</li>
+                <li>Повторите проверку через 1-2 месяца</li>
+            </ol>
+            <p style="margin-top: 10px; background-color: #fff8e1; padding: 10px; border-radius: 8px;">
+                <i class="fas fa-info-circle"></i> <strong>Важно:</strong> Никогда не вводите свой пароль на этих сайтах! Они проверяют только хеши паролей или email, но не сами пароли.
+            </p>
+        </div>
+        
+        <div style="background-color: #fce4ec; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h4 style="color: #c62828;"><i class="fas fa-bell"></i> Как не попасться на мошенников:</h4>
+            <ul>
+                <li>⚠️ Игнорируйте письма и СМС о «взломе» с просьбой перейти по ссылке</li>
+                <li>⚠️ Проверяйте утечки ТОЛЬКО через официальные сервисы</li>
+                <li>⚠️ Не вводите пароль на сайтах, обещающих «проверить безопасность»</li>
+                <li>⚠️ Если пришло письмо о взломе — зайдите на сервис напрямую, а не по ссылке из письма</li>
+            </ul>
+        </div>
+        
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h4 style="color: #388e3c;"><i class="fas fa-list-check"></i> Чек-лист безопасности после утечки:</h4>
+            <ul>
+                <li>✅ Сменить пароль на всех сервисах, где использовался один и тот же пароль</li>
+                <li>✅ Включить двухфакторную аутентификацию везде, где возможно</li>
+                <li>✅ Проверить банковские карты на предмет подозрительных операций</li>
+                <li>✅ Удалить старые аккаунты, которые больше не используются</li>
+                <li>✅ Внести свой email в список мониторинга утечек</li>
+            </ul>
+        </div>
+    `,
+    completed: false 
+},
         { 
             title: 'Итоговый тест', 
             duration: '30 мин',
@@ -4705,25 +4308,25 @@ wevtutil epl System system_backup.evtx</pre>
                 <div style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; margin-top: 20px;">
                     <h4 style="color: #388e3c;">Что вы узнали в этом курсе:</h4>
                     <ul>
-                        <li>Особенности безопасности паролей в российских реалиях</li>
-                        <li>Как создавать надежные пароли для российских сервисов</li>
-                        <li>Выбор менеджеров паролей с учётом российского законодательства</li>
-                        <li>Двухфакторная аутентификация на популярных российских платформах</li>
-                        <li>Корпоративная безопасность паролей в условиях РФ</li>
+                        <li>Почему пароли так важны и как их правильно создавать</li>
+                        <li>Как использовать менеджеры паролей для управления всеми аккаунтами</li>
+                        <li>Что такое двухфакторная аутентификация и как её настроить</li>
+                        <li>Как проверить, не утекли ли ваши пароли</li>
+                        <li>Правила безопасности для защиты от взлома</li>
                     </ul>
                     <p style="margin-top: 15px; font-weight: bold; text-align: center;">
-                        Эти знания помогут защитить ваши аккаунты в российском цифровом пространстве!
+                        Эти знания помогут защитить ваши аккаунты в любых сервисах по всему миру!
                     </p>
                 </div>
                 
                 <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px;">
                     <h4 style="color: #1976d2;"><i class="fas fa-graduation-cap icon"></i> Советы перед тестом:</h4>
                     <ul>
-                        <li>Минимальная длина пароля для банков — 12 символов</li>
-                        <li>Используйте разные пароли для российских и международных сервисов</li>
-                        <li>Выбирайте менеджеры паролей с учётом 152-ФЗ</li>
-                        <li>2FA на Госуслугах обязательна для большинства услуг</li>
-                        <li>В организациях учитывайте требования ФСТЭК и ЦБ РФ</li>
+                        <li>Минимальная длина надёжного пароля — 12 символов</li>
+                        <li>Используйте менеджер паролей для уникальных паролей</li>
+                        <li>Двухфакторная аутентификация защищает даже при утечке пароля</li>
+                        <li>Проверяйте свои email на утечки раз в несколько месяцев</li>
+                        <li>Никогда не используйте один пароль для разных сервисов</li>
                     </ul>
                 </div>
             `,
@@ -4732,8 +4335,7 @@ wevtutil epl System system_backup.evtx</pre>
     ],
     totalLessons: 6,
     totalDuration: '2 часа'
-},
-'mobile': {
+},'mobile': {
     title: 'Мобильная безопасность',
     icon: 'fa-mobile-alt',
     color: 'mobile',
@@ -5841,7 +5443,7 @@ function loadCoursesPage() {
             myCoursesContent = `
                 <div style="text-align: center; padding: 40px 0; color: #666;">
                     <i class="fas fa-book-open" style="font-size: 3rem; margin-bottom: 20px; color: #ddd;"></i>
-                    <h3>У вас нет активных курсов</h3>
+                    <h3>У вас нет активных курса</h3>
                     <p>Начните обучение с курсов для начинающих!</p>
                     <button class="btn btn-large" style="margin-top: 20px;" onclick="openTab(event, 'beginner-courses')">
                         <i class="fas fa-play icon"></i> Выбрать курс
