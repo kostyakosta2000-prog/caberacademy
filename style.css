@@ -3645,3 +3645,26 @@ grid-template-columns: repeat(4, 1fr);
 .profile-enhanced .completed-course-icon.mobile {
     background: linear-gradient(135deg, #7b1fa2, #ba68c8);
 }
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close:hover {
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.course-icon.mobile {
+    background: linear-gradient(135deg, #7b1fa2, #ba68c8);
+}
